@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 class Comp3 extends Component {
     render() {
         const {count} = this.props;
+        console.log("aaaa",this.props)
         return (
             <div>
                 comp3

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {handleDecrement,handleIncrement} from "../redux2/action";
+import {handleDecrement,handleIncrement,addProduct} from "../redux/action";
 import store from "../redux1/store";
 import {connect} from 'react-redux';
 
@@ -28,10 +28,15 @@ class Comp2 extends Component {
         // })
     }
 
+    add=()=>{
+
+    }
+
     render() {
         return (
             <div>
                 comp2
+                <button onClick={()=>{this.props.addGood({name:"999"})}}>product</button>
                 <button onClick={this.handleAdd}>+</button>
                 <button onClick={this.handleMins}>-</button>
             </div>
@@ -41,6 +46,11 @@ class Comp2 extends Component {
 
 const mapDispatchToProps=(dispatch)=>{
     return {
+        addGood(item){
+            console.log("item",item)
+            const action=addProduct(item)
+            dispatch(addProduct(item))
+        },
         add(){
             const action=handleIncrement()
             dispatch(action)
