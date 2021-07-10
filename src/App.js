@@ -9,7 +9,8 @@ import CarList from "./pages/CarList/index";
 import "./App.css";
 import AboutUs from "./pages/AboutUs/index";
 // import {connect} from "react-redux";
-
+import Redux1Comp from "./components/Redux1Comp";
+import Goods from "./components/Goods";
 class App extends React.Component {
 
   render() {
@@ -18,6 +19,8 @@ class App extends React.Component {
     <div className={"app"}>
       <Router history={history}>
           <Header/>
+          <Redux1Comp/>
+          <Goods/>
           <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/about" component={AboutUs} />
