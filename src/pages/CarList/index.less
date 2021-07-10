@@ -1,0 +1,101 @@
+@import "../../global.less";
+
+.container{
+  .carPreviewContainer{
+    margin-top: @first-primary-margin;
+    margin-bottom: @first-primary-margin;
+    .carPreviewContent{
+      justify-content:center;
+      display: flex;
+      flex-direction: column;
+      .carCard{
+        //margin: 0 @second-primary-margin @second-primary-margin @second-primary-margin;
+        border-radius: @card-border-radius;
+        margin: @second-primary-margin auto;
+        justify-content: center;
+        display: flex;
+        width: 800px;
+        background-blend-mode: soft-light, normal;
+        box-shadow: -7px -7px 16px #FAFBFC, 4px 3px 10px #BDC1D1, inset -1px -1px 10px #F5F6FA, inset 1px 1px 10px #E9EAF2;
+        .left{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-right: @first-primary-margin;
+          //margin: 0 @first-primary-margin;
+          .imgContainer{
+            margin:@middle-margin auto;
+            border: 7px solid @first-primary-color;
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            padding: 10px;
+            img{
+              width: 100%;
+              height: 100%;
+            }
+          }
+        }
+
+
+        .right{
+          margin: @middle-margin 0;
+          .detailCell{
+            display: flex;
+            //justify-content: center;
+            //margin-left: 50px;
+            margin-bottom: @second-primary-margin;
+            .detailTitle{
+              color: @first-primary-color;
+              font-weight: @second-primary-font-weight;
+              margin-right: @second-primary-margin;
+            }
+            .detailContent{
+              text-align: left;
+            }
+          }
+
+          .detailPageBtn{
+            display: flex;
+            button{
+              margin: @second-primary-margin @second-primary-margin 0 0;
+              height: auto;
+            }
+            //justify-content: center;
+            .addToCartBtn{
+              //font-size: @second-primary-font-size;
+              border-radius: @button-border-radius;
+              border: none;
+              color: white;
+              background-color: @first-primary-color;
+            }
+            .detailBtn{
+              border: 2px solid @first-primary-color;
+              color: @first-primary-color;
+              //width: 80px;
+              //margin-bottom: @middle-margin;
+              //margin: @middle-margin auto;
+              //font-size: @second-primary-font-size;
+              border-radius: @button-border-radius;
+            }
+          }
+        }
+
+      }
+
+    }
+
+    .carMore{
+      display: flex;
+      justify-content: center;
+      margin: @middle-margin 0 @first-primary-margin 0;
+      button{
+        background-color: @first-primary-color;
+        color: white;
+        border: none;
+        border-radius: @button-border-radius;
+      }
+
+    }
+  }
+}

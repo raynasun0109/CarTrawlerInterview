@@ -1,0 +1,44 @@
+@import "../../global.less";
+.header{
+  display: flex;
+  height: 70px;
+  width: 100vw;
+  justify-content: space-between;
+  border: 1px solid red;
+  //position: absolute;
+  top: @middle-margin;
+  z-index: 99999;
+  background-color: @first-primary-color;
+  .logoArea{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img{
+      width: 30px;
+      height: 30px;
+    }
+    border: 1px solid red;
+
+  }
+  .menuArea{
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .menuCell{
+      margin: 0 30px;
+      font-size: @first-primary-font-size;
+      color: white;
+    }
+  }
+  .shoppingArea{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img{
+      width: 30px;
+      height: 30px;
+    }
+    border: 1px solid red;
+  }
+}

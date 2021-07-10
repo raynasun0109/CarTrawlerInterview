@@ -1,0 +1,34 @@
+@import "../../global.less";
+
+.container{
+  .contentContainer{
+    margin-top: @first-primary-margin;
+    .contentCell{
+      margin: @first-primary-margin 0;
+      display: flex;
+      justify-content: center;
+      .right{
+        width: 500px;
+        margin: 0 @middle-margin;
+        .title{
+          font-weight: @first-primary-font-weight;
+          font-size: @first-primary-font-size;
+          margin-bottom: @middle-margin;
+          color: @first-primary-color;
+        }
+        .detail{
+          font-size: @second-primary-font-size;
+        }
+      }
+      .left{
+        margin: 0 @middle-margin;
+
+        img{
+          border-radius: @card-border-radius;
+          width: 500px;
+          height: 400px;
+        }
+      }
+    }
+  }
+}

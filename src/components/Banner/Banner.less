@@ -1,0 +1,21 @@
+@import "../../global.less";
+.bannerContainer{
+  position: relative;
+  width: 100%;
+  img{
+    height: 500px;
+    width: 100%;
+  }
+  .bannerText{
+    z-index: 2;
+    top: calc(250px);
+    margin:0 auto;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    font-size: @large-font-size;
+    font-weight: @first-primary-font-weight;
+    color: @first-primary-color;
+
+  }
+}

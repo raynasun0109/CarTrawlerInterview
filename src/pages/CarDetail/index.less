@@ -1,0 +1,80 @@
+@import "../../global.less";
+
+.container{
+  padding: @first-primary-margin;
+  .basicContent{
+    display: flex;
+    .left{
+      width: auto;
+      height: 100%;
+      border: 30px solid @first-primary-color;
+      padding: 20px;
+      margin-right: @first-primary-margin;
+      img{
+        width: 400px;
+        height: 400px;
+      }
+    }
+    .right{
+      margin-top: @second-primary-margin;
+      width: 100%;
+      .paymentContainer{
+        .payment{
+          //margin-top: auto;
+          .numberContainer{
+            margin: @second-primary-margin 0;
+            //margin-top: auto;
+          }
+          .btnContainer{
+            display: flex;
+            .addToCartBtn{
+              //font-weight: @first-primary-font-weight;
+              font-size: @second-primary-font-size;
+              border: 1px solid @first-primary-color;
+              border-radius: @button-border-radius;
+              color: @first-primary-color;
+            }
+            .purchaseBtn{
+              background-color: @first-primary-color;
+              //font-weight: @first-primary-font-weight;
+              font-size: @second-primary-font-size;
+              color: white;
+              border:none;
+              border-radius: @button-border-radius;
+            }
+            button{
+              margin: @second-primary-margin @second-primary-margin 0 0;
+              height: auto;
+            }
+          }
+        }
+
+      }
+      .detailCell{
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        .detailTitle{
+          font-weight: @first-primary-font-weight;
+          color: @first-primary-color;
+          font-size: @first-primary-font-size;
+        }
+        .detailContent{
+          margin-left: 10px;
+          display: flex;
+          align-items: center;
+          font-size: @second-primary-font-size;
+          img{
+            width: 50px;
+            height: 50px;
+          }
+          .productDetailCell{
+            display: flex;
+            align-items: center;
+          }
+
+        }
+      }
+    }
+  }
+}
