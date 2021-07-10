@@ -9,8 +9,11 @@ import CarList from "./pages/CarList/index";
 import "./App.css";
 import AboutUs from "./pages/AboutUs/index";
 // import {connect} from "react-redux";
-import Redux1Comp from "./components/Redux1Comp";
-import Goods from "./components/Goods";
+// import Redux1Comp from "./components/Redux1Comp";
+// import Goods from "./components/Goods";
+import Comp2 from "./components/Comp2";
+import Comp3 from "./components/Comp3";
+
 class App extends React.Component {
 
   render() {
@@ -19,8 +22,10 @@ class App extends React.Component {
     <div className={"app"}>
       <Router history={history}>
           <Header/>
-          <Redux1Comp/>
-          <Goods/>
+          <Comp2/>
+          <Comp3/>
+          {/*<Redux1Comp/>*/}
+          {/*<Goods/>*/}
           <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/about" component={AboutUs} />
