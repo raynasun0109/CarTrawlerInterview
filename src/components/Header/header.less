@@ -1,47 +1,142 @@
 @import "../../global.less";
 
-.header{
-  display: flex;
-  height: 70px;
-  width: 100vw;
-  justify-content: space-between;
-  top: @middle-margin;
-  z-index: 99999;
-  background-color: @first-primary-color;
-  .logoArea{
+@media screen and (max-width: 1023px) {
+
+  .header{
+    //position: relative;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    img{
-      width: 30px;
-      height: 30px;
+    height: 70px;
+    width: 100vw;
+    //overflow: hidden;
+    justify-content: space-between;
+    top: @middle-margin;
+    z-index: 99999;
+    background-color: @first-primary-color;
+    .logoArea{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: @middle-margin;
+      img{
+        width: 30px;
+        height: 30px;
+      }
+
     }
-    border: 1px solid red;
+
+    .collapseBtn{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: @middle-margin;
+      img{
+        width: 30px;
+        height: 30px;
+      }
+    }
+    .controlSideBarArea{
+      //position: absolute;
+      //width: 100vw;
+      //height: 100%;
+      //overflow: hidden;
+      border: 1px solid red;
+      .sideBarArea{
+        transform: translateX(0px);
+        border-radius: 0 0 0 0;
+        background: rgba(255, 255, 255, 0.6);
+        z-index: 99;
+        transition: all 700ms;
+      }
+      .closeSideBarArea{
+        transform: translateX(1000px);
+        transition: all 700ms;
+        z-index: 99;
+      }
+      .sideBarContainer {
+        padding-top: @second-primary-margin;
+        width: 200px;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        height: 100vh;
+        background-color: @first-primary-color;
+
+        .menuArea {
+          .menuCell {
+            margin: @second-primary-margin @middle-margin;
+            font-size: @first-primary-font-size;
+            color: white;
+
+            .activeCell {
+              height: 2px;
+              background-color: white;
+            }
+          }
+        }
+
+        .shoppingArea {
+          margin: @second-primary-margin @middle-margin;
+          display: flex;
+          align-items: center;
+
+          img {
+            width: 30px;
+            height: 30px;
+          }
+        }
+
+
+      }
+      }
 
   }
-  .menuArea{
+}
+
+@media screen and (min-width: 1024px) {
+  .header{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    .menuCell{
-      margin: 0 30px;
-      font-size: @first-primary-font-size;
-      color: white;
-      .activeCell{
-        height: 2px;
-        width: 100%;
-        background-color: white;
+    height: 70px;
+    width: 100vw;
+    justify-content: space-between;
+    top: @middle-margin;
+    z-index: 99999;
+    background-color: @first-primary-color;
+    .logoArea{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: @middle-margin;
+      img{
+        width: 30px;
+        height: 30px;
+      }
+
+    }
+    .menuArea{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .menuCell{
+        margin: 0 30px;
+        font-size: @first-primary-font-size;
+        color: white;
+        .activeCell{
+          height: 2px;
+          width: 100%;
+          background-color: white;
+        }
+      }
+    }
+    .shoppingArea{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: @middle-margin;
+      img{
+        width: 30px;
+        height: 30px;
       }
     }
   }
-  .shoppingArea{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    img{
-      width: 30px;
-      height: 30px;
-    }
-    border: 1px solid red;
-  }
 }
+

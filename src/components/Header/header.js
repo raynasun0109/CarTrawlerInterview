@@ -1,10 +1,13 @@
 import React, {Component} from 'react';
 import styles from "./header.less";
 import history from '../../history';
-import ShoppingCart from "../../assets/Header/shoppingCart.jpg";
-import Logo from "../../assets/logo.jpg"
+import ShoppingCart from "../../assets/Header/shopping-cart.png";
+import Logo from "../../assets/logo.png";
+import CollapseIcon from "../../assets/Header/collapse.png";
 class Header extends Component {
     state={
+        collapse: false,
+        isOpenSideMenu:false,
         menu:[
             {
                 name: 'Home',
@@ -28,8 +31,13 @@ class Header extends Component {
 
     componentDidMount() {
         this.checkRouter()
+        window.addEventListener('reseize', this.resize.bind(this));
+        this.resize();
     }
 
+    resize() {
+        this.setState({ collapse: window.innerWidth < 1024 });
+    }
     checkRouter = () => {
         let {pathname} = window.location;
         this.setState({ pathname: pathname })
@@ -39,34 +47,84 @@ class Header extends Component {
         this.checkRouter()
     }
 
+    toHomePage=()=>{
+        history.push("/");
+        this.checkRouter()
+    }
     toCheckout=()=>{
         history.push("/checkout");
     }
 
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.resize.bind(this));
+    }
+
+    openSideMenu=()=>{
+        const { isOpenSideMenu } = this.state;
+        this.setState({ isOpenSideMenu: !isOpenSideMenu });
+    }
+
     render() {
-        const {menu,pathname}= this.state;
+        const {menu,pathname,collapse,isOpenSideMenu}= this.state;
         console.log(this.props)
         return (
             <div className={styles.header}>
-                <div className={styles.logoArea}>
-                    <img src={Logo}/>
-                </div>
-                <div className={styles.menuArea}>
-                    {
-                        menu.map((item,index)=>{
-                            return (
-                                <div className={styles.menuCell} key={index} onClick={()=>{this.jumpToPage(item.path)}}>
-                                    {item.name}
-                                    <div className={pathname===item.path?styles.activeCell:styles.inActiveCell}/>
+                {
+                    collapse
+                    ?
+                        <>
+                            <div className={styles.logoArea} onClick={this.toHomePage}>
+                                <img src={Logo}/>
+                            </div>
+                            <div className={styles.collapseBtn} onClick={this.openSideMenu}>
+                                <img src={CollapseIcon}/>
+                            </div>
+                            {console.log("isOpenSideMenu",isOpenSideMenu)}
+                            <div className={styles.controlSideBarArea}>
+                            <div className={`${isOpenSideMenu?styles.sideBarArea : styles.closeSideBarArea} ${styles.sideBarContainer}`}>
+                                <div className={styles.menuArea}>
+                                    {
+                                        menu.map((item,index)=>{
+                                            return (
+                                                <div className={styles.menuCell} key={index} onClick={()=>{this.jumpToPage(item.path)}}>
+                                                    {item.name}
+                                                    <div className={pathname===item.path?styles.activeCell:styles.inActiveCell}/>
+                                                </div>
+                                            )
+                                        })
+                                    }
                                 </div>
-                            )
-                        })
-                    }
-                </div>
-                <div className={styles.shoppingArea}>
+                                <div className={styles.shoppingArea}>
 
-                    <img src={ShoppingCart} onClick={this.toCheckout}/>
-                </div>
+                                    <img src={ShoppingCart} onClick={this.toCheckout}/>
+                                </div>
+                            </div>
+                            </div>
+                        </>
+                        :<>
+                            <div className={styles.logoArea} onClick={this.toHomePage}>
+                                <img src={Logo}/>
+                            </div>
+                            <div className={styles.menuArea}>
+                                {
+                                    menu.map((item,index)=>{
+                                        return (
+                                            <div className={styles.menuCell} key={index} onClick={()=>{this.jumpToPage(item.path)}}>
+                                                {item.name}
+                                                <div className={pathname===item.path?styles.activeCell:styles.inActiveCell}/>
+                                            </div>
+                                        )
+                                    })
+                                }
+                            </div>
+                            <div className={styles.shoppingArea}>
+
+                                <img src={ShoppingCart} onClick={this.toCheckout}/>
+                            </div>
+                        </>
+                }
+
+
             </div>
         );
     }

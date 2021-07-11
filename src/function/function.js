@@ -1,12 +1,12 @@
 import FreeNow from "../assets/Suppliers/supplier-freenow.svg";
 import Bolt from "../assets/Suppliers/supplier-bolt.svg";
-import DefaultSupplier from "../assets/Suppliers/DefaultSupplier.jpg"
+import DefaultSupplier from "../assets/Suppliers/DefaultSupplier.png"
 import Accessible from "../assets/Suppliers/vehicle-other-accessible.svg";
 import Eco from "../assets/Suppliers/vehicle-other-eco.svg";
 import MiniBus from "../assets/Suppliers/vehicle-standard-minibus.svg";
 import sedan from "../assets/Suppliers/vehicle-standard-sedan.svg";
 import suv from "../assets/Suppliers/vehicle-standard-suv.svg";
-import DefaultVehicleLogo from "../assets/Suppliers/DefaultVehicleLogo.jpg";
+import DefaultVehicleLogo from "../assets/Suppliers/DefaultVehicleLogo.png";
 
 /**
  * @Author Mingyang Sun

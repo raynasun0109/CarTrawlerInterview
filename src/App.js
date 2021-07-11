@@ -30,8 +30,3 @@ class App extends React.Component {
   }
 }
 export default App;
-// const mapStateToProps=state=>{
-//     console.log(state);
-//     return state.count
-// }
-// export default connect(mapStateToProps)(App);

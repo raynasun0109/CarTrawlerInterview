@@ -6,7 +6,7 @@ import {Tag,message,Button} from "antd";
 import {addProduct,removeProduct} from "../../redux/action";
 import history from "../../history";
 import ScrollToTopOnMount from "../../components/ScrollToTop/ScrollToTop";
-import EmptyImg from "../../assets/Checkout/Empty.jpg"
+import EmptyImg from "../../assets/Checkout/Empty.png"
 class Index extends Component {
 
     state={
