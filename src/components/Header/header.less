@@ -6,9 +6,11 @@
     display: flex;
     height: 70px;
     width: 100vw;
+    position: fixed;
+    top: 0;
     //overflow: auto;
     justify-content: space-between;
-    top: @middle-margin;
+    //top: @middle-margin;
     z-index: 99999;
     background-color: @first-primary-color;
     .logoArea{
@@ -16,9 +18,11 @@
       justify-content: center;
       align-items: center;
       margin-left: @middle-margin;
+
       img{
         width: 30px;
         height: 30px;
+        cursor: pointer;
       }
 
     }
@@ -73,10 +77,11 @@
             margin: @second-primary-margin @middle-margin;
             font-size: @first-primary-font-size;
             color: white;
-
+            cursor: pointer;
             .activeCell {
               height: 2px;
               background-color: white;
+              cursor: pointer;
             }
           }
         }
@@ -85,7 +90,7 @@
           margin: @second-primary-margin @middle-margin;
           display: flex;
           align-items: center;
-
+          cursor: pointer;
           img {
             width: 30px;
             height: 30px;
@@ -114,6 +119,7 @@
       margin-left: @middle-margin;
       img{
         width: 30px;
+        cursor: pointer;
         height: 30px;
       }
 
@@ -126,6 +132,7 @@
         margin: 0 30px;
         font-size: @first-primary-font-size;
         color: white;
+        cursor: pointer;
         .activeCell{
           height: 2px;
           width: 100%;
@@ -138,6 +145,7 @@
       justify-content: center;
       align-items: center;
       margin-right: @middle-margin;
+      cursor: pointer;
       img{
         width: 30px;
         height: 30px;

@@ -189,3 +189,43 @@ export function calculateAmountAfterRemoveItem(removedItem,data) {
 
     return data
 }
+
+/**
+ * @Author Mingyang Sun
+ * @Date 11/07/2021
+ * @Description: Sort car list specific value from either high to low or low to high
+ * @Contact: sunmi@tcd.ie
+ */
+export function sortByCategory(data,key,value) {
+
+    // let my=[];
+    // console.log(data,key,value)
+    // if (value==="From High to Low"){
+    //
+    //     my=data.sort(function (a,b) {
+    //         return a.key - b.key;
+    //     })
+    //     // return data.sort(function (a,b) {
+    //     //     return a.key - b.key;
+    //     // })
+    // } else{
+    //     return data.sort(function (a,b) {
+    //         return b.key - a.key;
+    //     })
+    // }
+
+    return data.sort(function (a,b) {
+        return b[key]['amount'] - a[key]['amount'];
+    })
+}
+// export function sortByPrice(data,key,value) {
+//     return data.sort(function (a,b) {
+//         return b.key - a.key;
+//     })
+//
+// }
+// export function sortDataByETA(data){
+//     return data.sort(function (a,b) {
+//         return a.eta - b.eta;
+//     })
+// }

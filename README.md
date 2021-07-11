@@ -4,7 +4,10 @@
 
 Author: Mingyang Sun \
 Contact: sunmi@tcd.ie \
-All Copyright reserves
+All Copyright reserves \
+node version: v14.3.0 \
+yarn version: 1.22.10
+
 
 
 ## Introduction
@@ -27,6 +30,7 @@ All Copyright reserves
 1. Responsive to more devices
 2. Better UI design
 3. Payment process and Add to cart process should be more user friendly
+4. Uses localstorage for the collection feature and storage the shopping cart feature to improve user experience
 
 
 # Getting Started with This Project

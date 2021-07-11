@@ -101,13 +101,14 @@
               }
               //justify-content: center;
               .addToCartBtn{
-                //font-size: @second-primary-font-size;
                 border-radius: @button-border-radius;
+                cursor: pointer;
                 border: none;
                 color: white;
                 background-color: @first-primary-color;
               }
               .detailBtn{
+                cursor: pointer;
                 border: 2px solid @first-primary-color;
                 color: @first-primary-color;
                 border-radius: @button-border-radius;
@@ -158,7 +159,7 @@
       .filterCell{
 
         display: flex;
-        align-items: center;
+        //align-items: center;
         margin: @second-primary-margin auto 0 auto;
         .filterName{
           width: 160px;
@@ -169,6 +170,13 @@
         }
         .filterBox{
           width: 360px;
+          .sortArea{
+
+            display: flex;
+            .title{
+                width: 50px;
+            }
+          }
         }
       }
     }

@@ -3,7 +3,9 @@ import styles from "./header.less";
 import history from '../../history';
 import ShoppingCart from "../../assets/Header/shopping-cart.png";
 import Logo from "../../assets/logo.png";
+import {Badge} from "antd";
 import CollapseIcon from "../../assets/Header/collapse.png";
+import {connect} from "react-redux";
 class Header extends Component {
     state={
         collapse: false,
@@ -66,7 +68,8 @@ class Header extends Component {
 
     render() {
         const {menu,pathname,collapse,isOpenSideMenu}= this.state;
-        console.log(this.props)
+        const {total}=this.props.state;
+        // console.log(this.props)
         return (
             <div className={styles.header}>
                 {
@@ -79,8 +82,7 @@ class Header extends Component {
                             <div className={styles.collapseBtn} onClick={this.openSideMenu}>
                                 <img src={CollapseIcon}/>
                             </div>
-                            {console.log("isOpenSideMenu",isOpenSideMenu)}
-                            {/*<div className={styles.controlSideBarArea}>*/}
+                            {/*{console.log("isOpenSideMenu",isOpenSideMenu)}*/}
                             <div className={`${isOpenSideMenu?styles.sideBarArea : styles.closeSideBarArea} ${styles.sideBarContainer}`}>
                                 <div className={styles.menuArea}>
                                     {
@@ -96,11 +98,10 @@ class Header extends Component {
                                 </div>
                                 <div className={styles.shoppingArea}>
 
-                                    <img src={ShoppingCart} onClick={this.toCheckout}/>
+                                    <Badge count={total}>
+                                        <img src={ShoppingCart} onClick={this.toCheckout}/>
+                                    </Badge>
                                 </div>
-                            {/*</div>*/}
-
-
                             </div>
 
                         </>
@@ -121,8 +122,9 @@ class Header extends Component {
                                 }
                             </div>
                             <div className={styles.shoppingArea}>
-
-                                <img src={ShoppingCart} onClick={this.toCheckout}/>
+                                <Badge count={total}>
+                                    <img src={ShoppingCart} onClick={this.toCheckout}/>
+                                </Badge>
                             </div>
                         </>
                 }
@@ -133,4 +135,10 @@ class Header extends Component {
     }
 }
 
-export default Header;
+const mapStateToProps=(state)=>{
+    return {
+        state,
+
+    }
+}
+export default connect(mapStateToProps)(Header);

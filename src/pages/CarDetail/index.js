@@ -176,9 +176,3 @@ const mapDispatchToProps=(dispatch)=>{
     }
 }
 export default connect(null,mapDispatchToProps)(Index);
-// export default Index;
-// const mapStateToProps = state=>{
-//     console.log("state",state)
-//     return state.count
-// }
-// export default connect(mapStateToProps)(Index);

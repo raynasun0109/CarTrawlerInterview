@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import styles from "./index.less";
 import {carService} from "../../services/CarService";
 import {returnSupplierLogo, sortDataByETA,filterSupplierName,
-    filterProductType,transferSubCategory,transferProductType,filterSubCategory} from "../../function/function";
+    filterProductType,transferSubCategory,transferProductType,
+    filterSubCategory,sortByCategory} from "../../function/function";
 import {Button, message, Tag,Input,Radio} from "antd";
 import history from "../../history";
 import Banner from "../../components/Banner/Banner";
@@ -18,7 +19,18 @@ class Index extends Component {
         productType:["Standard","Other"],
         chosenProductType:"",
         subCategory:["Highly Recommended","Most Popular"],
-        chosenSubCategory:""
+        chosenSubCategory:"",
+        sortBy:"",
+        sortByChoice:[
+            {
+                name:"Price",
+                content:['From Low to High',"From High to Low"]
+            },
+            {
+                name:"ETA",
+                content:['From Low to High',"From High to Low"]
+            }
+            ]
     }
     componentDidMount(){
         this.fetchCarList()
@@ -58,9 +70,17 @@ class Index extends Component {
         this.setState({carList:searchList})
     }
 
-    render() {
-        const {carList,productType,subCategory}= this.state;
+    onSortChange=(e,name)=>{
+        const {carList}=this.state;
+        // console.log(e.target.value,name)
+        const searchList=sortByCategory(carList,name,e.target.value);
 
+        this.setState({carList:searchList})
+    }
+    render() {
+        const {carList,productType,subCategory,sortByChoice}= this.state;
+
+        console.log(carList)
         return (
             <div className={styles.container}>
                 <ScrollToTopOnMount/>
@@ -77,7 +97,7 @@ class Index extends Component {
 
                         </div>
                     </div>
-                    <div className={styles.filterCell}>
+                   <div className={styles.filterCell}>
                         <div className={styles.filterName}>
                             Sub Category:
                         </div>
@@ -86,6 +106,29 @@ class Index extends Component {
 
                         </div>
                     </div>
+                    {/*
+                    <div className={styles.filterCell}>
+                        <div className={styles.filterName}>
+                            Sort By:
+                        </div>
+                        <div className={styles.filterBox}>
+                            {
+                                sortByChoice.map((item,index)=>{
+                                    return (
+                                        <div key={index} className={styles.sortArea}>
+                                            <div className={styles.title}>
+                                                {item.name}:
+                                            </div>
+                                        <Radio.Group options={item.content} onChange={(...arg)=>{this.onSortChange(...arg,item.name)}} />
+                                        </div>
+
+                                    )
+                                })
+                            }
+
+                        </div>
+
+                    </div>*/}
                     <Button className={styles.reSetBtn} onClick={this.reset}>Reset</Button>
                 </div>
                 <div className={styles.carPreviewContainer}>
