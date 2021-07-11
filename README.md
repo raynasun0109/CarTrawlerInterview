@@ -15,6 +15,20 @@ All Copyright reserves
 5. Car list filter feature
 
 
+## Highlight
+1. Displayed all the supplier logo for each product
+2. Displayed all the product type and vehicle type icon for each product
+3. Offered filter options
+4. Used Redux for state management
+5. Designed the website logo
+
+
+## Something needs to improve
+1. Responsive to more devices
+2. Better UI design
+3. Payment process and Add to cart process should be more user friendly
+
+
 # Getting Started with This Project
 ###1. `git clone https://github.com/raynasun0109/CarTrawlerInterview.git`
 ###2. `yarn install`
