@@ -1,6 +1,5 @@
 import React from 'react';
-import {Switch, Router, Route} from 'react-router-dom';
-import history from './history';
+import {Switch,BrowserRouter as Router, Route} from 'react-router-dom';
 import Home from "../src/pages/Home/index";
 import CarDetail from "./pages/CarDetail/index";
 import Header from "./components/Header/header";
@@ -12,18 +11,59 @@ import CheckOut from "./pages/Checkout/index"
 import NotFound from "./pages/NotFound/index"
 class App extends React.Component {
 
+    state={
+        routers:[
+            {
+                exact:true,
+                path:"/",
+                component:Home
+            },
+            {
+                exact:true,
+                path:"/about",
+                component:AboutUs
+            },
+            {
+                exact:true,
+                path:"/checkout",
+                component:CheckOut
+            },
+            {
+                exact:true,
+                path:"/car",
+                component:CarList
+            },
+            {
+                exact:true,
+                path:"/car/:id",
+                component:CarDetail
+            },
+            {
+                exact:false,
+                path:"*",
+                component:NotFound
+            }
+
+        ]
+    }
+
   render() {
+        const {routers} = this.state
   return (
     <div className={"app"}>
-      <Router history={history}>
+      <Router>
           <Header/>
           <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/about" component={AboutUs} />
-              <Route exact path="/checkout" component={CheckOut} />
-              <Route exact path="/car" component={CarList} />
-              <Route exact path="/car/:id" component={CarDetail} />
-              <Route path="*" component={NotFound} />
+              {
+                  routers.map((item,index)=>{
+
+                      return (
+                          <Route exact={item.exact} path={item.path} component={item.component} />
+                      )
+
+              })
+
+              }
           </Switch>
           <Footer/>
       </Router>

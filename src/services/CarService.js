@@ -1,4 +1,3 @@
-import React, {Component} from 'react';
 import axios from 'axios';
 
 let getCarListUrl='https://raw.githubusercontent.com/cartrawler/mobility-react-native-assessment/master/assets/availability.json';

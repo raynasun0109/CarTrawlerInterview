@@ -1,21 +1,20 @@
 import React, {Component} from 'react';
 import styles from "./index.less"
 import {connect} from "react-redux";
-import {returnSupplierLogo,calculateAmount} from "../../function/function";
+import {returnSupplierLogo} from "../../function/function";
 import {Tag,message,Button} from "antd";
 import {addProduct,removeProduct} from "../../redux/action";
-import history from "../../history";
 import ScrollToTopOnMount from "../../components/ScrollToTop/ScrollToTop";
 import EmptyImg from "../../assets/Checkout/Empty.png"
 class Index extends Component {
 
     toCarList=()=>{
-        history.push("/car")
+        this.props.history.push("/car")
     }
 
     placeOrder=()=>{
         message.success("Place order successfully, now jump to home page")
-        history.push("/")
+        this.props.history.push("/")
     }
 
     render() {
@@ -39,7 +38,7 @@ class Index extends Component {
                                     return (
                                         <div key={index} className={styles.checkoutCell}>
                                             <div className={styles.left}>
-                                                <img src={returnSupplierLogo(item.supplier.supplierKey)}/>
+                                                <img alt="img" src={returnSupplierLogo(item.supplier.supplierKey)}/>
                                             </div>
                                             <div className={styles.right}>
                                                 <div className={styles.detailCell}>
@@ -108,7 +107,7 @@ class Index extends Component {
 
                         :
                         <div className={styles.emptyContainer}>
-                            <img src={EmptyImg}/>
+                            <img src={EmptyImg} alt="img"/>
                             <div className={styles.content}>
                                 Your shopping cart is empty
                             </div>

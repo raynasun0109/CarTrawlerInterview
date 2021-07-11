@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
 import styles from "./index.less";
 import {carService} from "../../services/CarService";
-import {Button, InputNumber, message, Tag} from "antd";
+import {Button, message, Tag} from "antd";
 import {filterDetailContent, returnSupplierLogo,returnVehicleLogo} from "./../../function/function";
 import {connect} from "react-redux";
 import {addProduct} from "../../redux/action";
-import history from "../../history";
 class Index extends Component {
     state={
         carDetail:[]
@@ -56,7 +55,7 @@ class Index extends Component {
     }
 
     ToCheckout=()=>{
-        history.push('/checkout')
+        this.props.history.push('/checkout')
     }
 
     render() {
@@ -64,7 +63,7 @@ class Index extends Component {
         // console.log("pageDetail",this.props)
 
 
-        const {dispatch,count}=this.props;
+        // const {dispatch,count}=this.props;
         const {carDetail} = this.state;
         const {shoppingList}=this.props;
 
@@ -75,7 +74,7 @@ class Index extends Component {
                     <div className={styles.left}>
                         {
                             carDetail.supplier&&
-                            <img src={returnSupplierLogo(carDetail.supplier.supplierKey)}/>
+                            <img alt="img" src={returnSupplierLogo(carDetail.supplier.supplierKey)}/>
                         }
                     </div>
 
@@ -133,7 +132,7 @@ class Index extends Component {
                             <div className={styles.detailContent}>
 
                                 {carDetail.category&&
-                                    <img src={returnVehicleLogo(carDetail.category.vehicleType)}/>}
+                                    <img alt="img" src={returnVehicleLogo(carDetail.category.vehicleType)}/>}
                                 {carDetail.category&&carDetail.category.vehicleType}
                             </div>
                         </div>

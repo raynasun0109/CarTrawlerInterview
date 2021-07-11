@@ -11,18 +11,6 @@ import DefaultVehicleLogo from "../assets/Suppliers/DefaultVehicleLogo.png";
 /**
  * @Author Mingyang Sun
  * @Date 10/07/2021
- * @Description: Sort data by ETA from small to large
- * @Contact: sunmi@tcd.ie
- */
-export function sortDataByETA(data){
-   return data.sort(function (a,b) {
-        return a.eta - b.eta;
-    })
-}
-
-/**
- * @Author Mingyang Sun
- * @Date 10/07/2021
  * @Description: return the supplier logo based on the supplierKey
  * @Contact: sunmi@tcd.ie
  */
@@ -82,7 +70,7 @@ export function filterSupplierName(keyword,data) {
     console.log("filterSearchContent",keyword,data)
     const filtedContent= data.filter(function (value, index, array) {
 
-        return value.supplier.supplierName == keyword.toUpperCase() ;
+        return value.supplier.supplierName === keyword.toUpperCase() ;
     });
     return filtedContent
 }
@@ -96,14 +84,14 @@ export function filterSupplierName(keyword,data) {
 export function filterProductType(keyword,data) {
     const filtedContent= data.filter(function (value, index, array) {
 
-        return value.category.productType == keyword.toUpperCase() ;
+        return value.category.productType === keyword.toUpperCase() ;
     });
     return filtedContent
 }
 export function filterSubCategory(keyword,data) {
     const filtedContent= data.filter(function (value, index, array) {
 
-        return value.category.subCategory == keyword.toUpperCase() ;
+        return value.category.subCategory === keyword.toUpperCase() ;
     });
     return filtedContent
 }
@@ -196,36 +184,27 @@ export function calculateAmountAfterRemoveItem(removedItem,data) {
  * @Description: Sort car list specific value from either high to low or low to high
  * @Contact: sunmi@tcd.ie
  */
-export function sortByCategory(data,key,value) {
+export function sortDataByETA(data,value) {
 
-    // let my=[];
-    // console.log(data,key,value)
-    // if (value==="From High to Low"){
-    //
-    //     my=data.sort(function (a,b) {
-    //         return a.key - b.key;
-    //     })
-    //     // return data.sort(function (a,b) {
-    //     //     return a.key - b.key;
-    //     // })
-    // } else{
-    //     return data.sort(function (a,b) {
-    //         return b.key - a.key;
-    //     })
-    // }
+    if (value==="From High to Low") {
+        return data.sort(function (a, b) {
+            return b.eta - a.eta;
+        })
+    }else {
+        return data.sort(function (a, b) {
+            return a.eta - b.eta;
+        })
+    }
 
-    return data.sort(function (a,b) {
-        return b[key]['amount'] - a[key]['amount'];
-    })
 }
-// export function sortByPrice(data,key,value) {
-//     return data.sort(function (a,b) {
-//         return b.key - a.key;
-//     })
-//
-// }
-// export function sortDataByETA(data){
-//     return data.sort(function (a,b) {
-//         return a.eta - b.eta;
-//     })
-// }
+export function sortByPrice(data,value) {
+    if (value==="From High to Low") {
+        return data.sort(function (a, b) {
+            return b.price.amount - a.price.amount;
+        })
+    }else {
+        return data.sort(function (a, b) {
+            return a.price.amount - b.price.amount;
+        })
+    }
+}

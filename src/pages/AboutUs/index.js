@@ -12,7 +12,7 @@ class Index extends Component {
                 <div className={styles.contentContainer}>
                     <div className={`${styles.contentCell} ${styles.cultureCell}`}>
                         <div className={styles.left}>
-                            <img src={ImgOne}/>
+                            <img alt="img" src={ImgOne}/>
                         </div>
                         <div className={styles.right}>
                             <div className={styles.title}>
@@ -34,7 +34,7 @@ class Index extends Component {
                         </div>
                         </div>
                         <div className={styles.left}>
-                            <img src={ImgSecond}/>
+                            <img alt="img" src={ImgSecond}/>
                         </div>
                     </div>
                 </div>

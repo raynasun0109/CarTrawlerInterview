@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
 import { Result, Button } from 'antd';
-import history from "../../history";
 import styles from "./index.less";
 class Index extends Component {
     toHomePage=()=>{
-        history.push("/");
+        this.props.history.push("/");
     }
     render() {
         return (

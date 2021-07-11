@@ -3,9 +3,8 @@ import styles from "./index.less";
 import {carService} from "../../services/CarService";
 import {returnSupplierLogo, sortDataByETA,filterSupplierName,
     filterProductType,transferSubCategory,transferProductType,
-    filterSubCategory,sortByCategory} from "../../function/function";
+    filterSubCategory,sortByPrice} from "../../function/function";
 import {Button, message, Tag,Input,Radio} from "antd";
-import history from "../../history";
 import Banner from "../../components/Banner/Banner";
 import BannerImg from "./../../assets/CarList/banner.jpg";
 import {addProduct} from "../../redux/action";
@@ -41,7 +40,7 @@ class Index extends Component {
         this.setState({carList:sortDataByETA(carListRawData.data)})
     }
     jumpToCarDetail=(pageDetail)=>{
-        history.push( {pathname:`/car/${pageDetail.availabilityId}`})
+        this.props.history.push( {pathname:`/car/${pageDetail.availabilityId}`})
     }
 
     //search bar
@@ -72,15 +71,19 @@ class Index extends Component {
 
     onSortChange=(e,name)=>{
         const {carList}=this.state;
-        // console.log(e.target.value,name)
-        const searchList=sortByCategory(carList,name,e.target.value);
+        if(name==="Price"){
+            const searchList=sortByPrice(carList,e.target.value);
+            this.setState({carList:searchList})
+        } else{
+            const searchList=sortDataByETA(carList,e.target.value);
 
-        this.setState({carList:searchList})
+            this.setState({carList:searchList})
+        }
+
     }
     render() {
         const {carList,productType,subCategory,sortByChoice}= this.state;
 
-        console.log(carList)
         return (
             <div className={styles.container}>
                 <ScrollToTopOnMount/>
@@ -106,7 +109,6 @@ class Index extends Component {
 
                         </div>
                     </div>
-                    {/*
                     <div className={styles.filterCell}>
                         <div className={styles.filterName}>
                             Sort By:
@@ -119,16 +121,18 @@ class Index extends Component {
                                             <div className={styles.title}>
                                                 {item.name}:
                                             </div>
-                                        <Radio.Group options={item.content} onChange={(...arg)=>{this.onSortChange(...arg,item.name)}} />
+                                            <Radio.Group options={item.content} onChange={(...arg)=>{this.onSortChange(...arg,item.name)}} />
+
                                         </div>
 
                                     )
                                 })
                             }
 
+
                         </div>
 
-                    </div>*/}
+                    </div>
                     <Button className={styles.reSetBtn} onClick={this.reset}>Reset</Button>
                 </div>
                 <div className={styles.carPreviewContainer}>
@@ -140,7 +144,7 @@ class Index extends Component {
                                     <div key={index} className={styles.carCard}>
                                         <div className={styles.left}>
                                             <div className={styles.imgContainer}>
-                                                <img src={returnSupplierLogo(item.supplier.supplierKey)}/>
+                                                <img alt="img" src={returnSupplierLogo(item.supplier.supplierKey)}/>
                                             </div>
                                         </div>
                                         <div className={styles.right}>

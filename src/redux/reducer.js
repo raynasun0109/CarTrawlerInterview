@@ -34,7 +34,7 @@ const reducer=(state=initState,action)=>{
             }
 
 
-
+            break;
         case "addProduct":
             const addList=[];
 
@@ -73,8 +73,8 @@ const reducer=(state=initState,action)=>{
                         totalAmount:calculateAmount(state.shoppingList.concat(addList))
                     })
                 }
-
             }
+
         default:
             return state;
     }

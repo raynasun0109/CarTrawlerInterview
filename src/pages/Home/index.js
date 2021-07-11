@@ -5,8 +5,7 @@ import CarouselOne from "./../../assets/Home/carsouel-1.jpg";
 import CarouselTwo from "./../../assets/Home/carsouel-2.jpg";
 import CarouselThree from "./../../assets/Home/carsouel-3.jpg";
 import {carService} from "../../services/CarService";
-import {sortDataByETA,returnSupplierLogo,returnVehicleLogo} from "../../function/function";
-import history from '../../history';
+import {sortDataByETA,returnSupplierLogo} from "../../function/function";
 import ScrollToTopOnMount from "../../components/ScrollToTop/ScrollToTop";
 class Index extends Component {
     state={
@@ -39,11 +38,11 @@ class Index extends Component {
     }
 
     toCarListPage=()=>{
-        history.push("/car")
+        this.props.history.push("/car")
     }
 
     jumpToCarDetail=(pageDetail)=>{
-        history.push( {pathname:`/car/${pageDetail.availabilityId}`})
+        this.props.history.push( {pathname:`/car/${pageDetail.availabilityId}`})
     }
     render() {
         const {carouselContent,carList}= this.state;
@@ -60,7 +59,7 @@ class Index extends Component {
                                        <div className={styles.text}>
                                            {item.content}
                                        </div>
-                                       <img src={item.img}/>
+                                       <img src={item.img} alt="img"/>
                                    </div>
                                )
                            })
@@ -81,7 +80,7 @@ class Index extends Component {
                                 return (
                                     <div key={index} className={styles.carCard}>
                                         <div className={styles.imgContainer}>
-                                            <img src={returnSupplierLogo(item.supplier.supplierKey)}/>
+                                            <img alt="img" src={returnSupplierLogo(item.supplier.supplierKey)}/>
                                         </div>
                                         <div className={styles.detailCell}>
                                             <div className={styles.detailTitle}>
