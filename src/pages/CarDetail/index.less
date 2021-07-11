@@ -200,21 +200,23 @@
 
 @media screen and (min-width: 1024px) {
   .container {
-    padding: @first-primary-margin;
 
     .basicContent {
       display: flex;
-
+      margin: @first-primary-margin 0 0 0;
+      min-height: calc(100vh - 70px - 50px - @first-primary-margin);
+      justify-content: center;
       .left {
         width: auto;
         height: 100%;
         border: 30px solid @first-primary-color;
         padding: 20px;
-        margin-right: @first-primary-margin;
+        margin-right: @second-primary-margin;
+        margin-left: @first-primary-margin;
 
         img {
-          width: 400px;
-          height: 400px;
+          width: 30vw;
+          height: 30vw;
         }
       }
 
@@ -272,6 +274,7 @@
             align-items: center;
             font-size: @second-primary-font-size;
 
+            flex-wrap: wrap;
             img {
               width: 50px;
               height: 50px;
@@ -280,6 +283,7 @@
             .productDetailCell {
               display: flex;
               align-items: center;
+              margin-bottom: @second-primary-margin;
             }
           }
         }

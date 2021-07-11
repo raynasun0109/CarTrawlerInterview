@@ -1,18 +1,59 @@
 
 @import "../../global.less";
-.container{
-  height: calc(100vh - 70px - 50px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  .noFound{
-    .notFoundBtn{
-      background-color: @first-primary-color;
-      border: none;
-      height: auto;
-      border-radius: @button-border-radius;
-      font-size: @second-primary-font-size;
-    }
 
+@media screen and (max-width: 413px) {
+  .container{
+    min-height: calc(100vh - 70px - 150px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .noFound{
+      .notFoundBtn{
+        background-color: @first-primary-color;
+        border: none;
+        height: auto;
+        border-radius: @button-border-radius;
+        font-size: @second-primary-font-size;
+      }
+
+    }
   }
 }
+@media screen and (min-width:414px)and (max-width: 1023px) {
+  .container{
+    min-height: calc(100vh - 70px - 150px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .noFound{
+      .notFoundBtn{
+        background-color: @first-primary-color;
+        border: none;
+        height: auto;
+        border-radius: @button-border-radius;
+        font-size: @second-primary-font-size;
+      }
+
+    }
+  }
+}
+@media screen and (min-width: 1024px) {
+  .container{
+    height: calc(100vh - 70px - 50px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .noFound{
+      .notFoundBtn{
+        background-color: @first-primary-color;
+        border: none;
+        height: auto;
+        border-radius: @button-border-radius;
+        font-size: @second-primary-font-size;
+      }
+
+    }
+  }
+}
+
+

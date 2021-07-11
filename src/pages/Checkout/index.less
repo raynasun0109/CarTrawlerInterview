@@ -104,7 +104,7 @@
         justify-content: center;
         width: 90vw;
         .left {
-          margin: 0 @middle-margin;
+          margin: 0 10px 0 @middle-margin;
           display: flex;
           align-items: center;
 
@@ -315,6 +315,10 @@
               display: flex;
               align-items: center;
               justify-content: center;
+              flex-wrap: wrap;
+              .tagCell{
+                margin-bottom: @second-primary-margin;
+              }
               .minusContainer{
                 border:1px solid @first-primary-color;
                 width: 20px;
