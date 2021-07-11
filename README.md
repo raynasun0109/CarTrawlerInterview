@@ -1,5 +1,11 @@
 # This is the project for Car Trawler Coding Test
 
+
+## Live Link
+To view the live website, please check this link below: \
+https://60eb42d5a46931f1fd27b710--romantic-jang-02d807.netlify.app/
+
+
 ## Author Information
 
 Author: Mingyang Sun \
