@@ -1,121 +1,247 @@
 @import "../../global.less";
-
-.container{
-  //overflow: hidden;
-  //width: 100vw;
-  .carouselContainer{
-    .carouselCell{
-      position: relative;
-      img{
-        height: calc(100vh - 50px);
-        width: 100%;
+@media screen and (min-width:414px)and (max-width: 1023px) {
+  .container{
+    //overflow: hidden;
+    //width: 100vw;
+    .carouselContainer{
+      .carouselCell{
+        position: relative;
+        img{
+          height: calc(100vh - 50px);
+          width: auto;
+        }
+        .text{
+          position: absolute;
+          z-index: 2;
+          top: calc(40vh);
+          margin:0 auto;
+          left: 50%;
+          color: @first-primary-color;
+          transform: translateX(-50%);
+          font-size: @first-middle-primary-font-size;
+          text-align: center;
+          font-weight: @first-primary-font-weight;
+        }
       }
-      .text{
-        position: absolute;
-        z-index: 2;
-        top: calc(40vh);
-        margin:0 auto;
-        left: 50%;
+
+    }
+
+    .title{
+      display: flex;
+      justify-content: center;
+      margin-top: @first-middle-primary-margin;
+      margin-bottom: @middle-margin;
+      .titleText{
         color: @first-primary-color;
-        transform: translateX(-50%);
-        font-size: @large-font-size;
-        text-align: center;
+        font-size:@large-middle-font-size;
         font-weight: @first-primary-font-weight;
       }
     }
+    .carPreviewContainer{
+      .carPreviewContent{
+        justify-content:center;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        .carCard{
+          margin: 0 @second-primary-margin @second-primary-margin @second-primary-margin;
+          border-radius: @card-border-radius;
+          width: 250px;
+          background-blend-mode: soft-light, normal;
+          box-shadow: -7px -7px 16px #FAFBFC, 4px 3px 10px #BDC1D1, inset -1px -1px 10px #F5F6FA, inset 1px 1px 10px #E9EAF2;
+          .imgContainer{
+            margin:@middle-margin auto;
+            border: 7px solid @first-primary-color;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            img{
+              width: 100%;
+              height: 100%;
+            }
+          }
 
-  }
+          .categoryCell{
+            display: block;
+            margin-bottom: @second-primary-margin;
+            .categoryTitle{
+              text-align: center;
+              color: @first-primary-color;
+              font-weight: @second-primary-font-weight;
+            }
+            .detailContent{
+              text-align: center;
+            }
+          }
+          .detailCell{
+            display: flex;
+            justify-content: center;
+            //margin-left: 50px;
+            margin-bottom: @second-primary-margin;
+            .detailTitle{
+              color: @first-primary-color;
+              font-weight: @second-primary-font-weight;
+              margin-right: @second-primary-margin;
+            }
 
-  .title{
-    display: flex;
-    justify-content: center;
-    margin-top: @first-primary-margin;
-    margin-bottom: @middle-margin;
-    .titleText{
-      color: @first-primary-color;
-      font-size:@large-font-size;
-      font-weight: @first-primary-font-weight;
-    }
-  }
-  .carPreviewContainer{
-    .carPreviewContent{
-      justify-content:center;
-      display: flex;
-      .carCard{
-        margin: 0 @second-primary-margin @second-primary-margin @second-primary-margin;
-        border-radius: @card-border-radius;
-        width: 250px;
-        background-blend-mode: soft-light, normal;
-        box-shadow: -7px -7px 16px #FAFBFC, 4px 3px 10px #BDC1D1, inset -1px -1px 10px #F5F6FA, inset 1px 1px 10px #E9EAF2;
-        .imgContainer{
-          margin:@middle-margin auto;
-          border: 7px solid @first-primary-color;
-          border-radius: 50%;
-          width: 100px;
-          height: 100px;
-          padding: 10px;
-          img{
-            width: 100%;
-            height: 100%;
+          }
+
+          .detailPageBtn{
+            display: flex;
+            justify-content: center;
+            .detailBtn{
+              border: 2px solid @first-primary-color;
+              color: @first-primary-color;
+              width: 80px;
+              margin-bottom: @middle-margin;
+              //margin: @middle-margin auto;
+
+              border-radius: @button-border-radius;
+            }
           }
         }
 
-        .categoryCell{
-          display: block;
-          margin-bottom: @second-primary-margin;
-          .categoryTitle{
-            text-align: center;
-            color: @first-primary-color;
-            font-weight: @second-primary-font-weight;
-          }
-          .detailContent{
-            text-align: center;
-          }
-        }
-        .detailCell{
-          display: flex;
-          justify-content: center;
-          //margin-left: 50px;
-          margin-bottom: @second-primary-margin;
-          .detailTitle{
-            color: @first-primary-color;
-            font-weight: @second-primary-font-weight;
-            margin-right: @second-primary-margin;
-          }
-
-        }
-
-        .detailPageBtn{
-          display: flex;
-          justify-content: center;
-          .detailBtn{
-            border: 2px solid @first-primary-color;
-            color: @first-primary-color;
-            width: 80px;
-            margin-bottom: @middle-margin;
-            //margin: @middle-margin auto;
-
-            border-radius: @button-border-radius;
-          }
-        }
       }
+      .carMore{
+        display: flex;
+        justify-content: center;
+        margin: @middle-margin 0 @first-primary-margin 0;
+        button{
+          background-color: @first-primary-color;
+          color: white;
+          border: none;
+          border-radius: @button-border-radius;
+        }
 
-    }
-    .carMore{
-      display: flex;
-      justify-content: center;
-      margin: @middle-margin 0 @first-primary-margin 0;
-      button{
-        background-color: @first-primary-color;
-        color: white;
-        border: none;
-        border-radius: @button-border-radius;
       }
-
     }
-  }
-  .aboutContent{
-    font-size: @second-primary-font-size;
-    margin: @second-primary-margin 20% @first-primary-margin 20%;
+    .aboutContent{
+      font-size: @second-primary-font-size;
+      margin: @second-primary-margin 20% @first-primary-margin 20%;
+    }
   }
 }
+
+@media screen and (min-width: 1024px) {
+  .container{
+    //overflow: hidden;
+    //width: 100vw;
+    .carouselContainer{
+      .carouselCell{
+        position: relative;
+        img{
+          height: calc(100vh - 70px);
+          width: 100%;
+        }
+        .text{
+          position: absolute;
+          z-index: 2;
+          top: calc(40vh);
+          margin:0 auto;
+          left: 50%;
+          color: @first-primary-color;
+          transform: translateX(-50%);
+          font-size: @large-font-size;
+          text-align: center;
+          font-weight: @first-primary-font-weight;
+        }
+      }
+
+    }
+
+    .title{
+      display: flex;
+      justify-content: center;
+      margin-top: @first-primary-margin;
+      margin-bottom: @middle-margin;
+      .titleText{
+        color: @first-primary-color;
+        font-size:@large-font-size;
+        font-weight: @first-primary-font-weight;
+      }
+    }
+    .carPreviewContainer{
+      .carPreviewContent{
+        justify-content:center;
+        display: flex;
+        .carCard{
+          margin: 0 @second-primary-margin @second-primary-margin @second-primary-margin;
+          border-radius: @card-border-radius;
+          width: 250px;
+          background-blend-mode: soft-light, normal;
+          box-shadow: -7px -7px 16px #FAFBFC, 4px 3px 10px #BDC1D1, inset -1px -1px 10px #F5F6FA, inset 1px 1px 10px #E9EAF2;
+          .imgContainer{
+            margin:@middle-margin auto;
+            border: 7px solid @first-primary-color;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            img{
+              width: 100%;
+              height: 100%;
+            }
+          }
+
+          .categoryCell{
+            display: block;
+            margin-bottom: @second-primary-margin;
+            .categoryTitle{
+              text-align: center;
+              color: @first-primary-color;
+              font-weight: @second-primary-font-weight;
+            }
+            .detailContent{
+              text-align: center;
+            }
+          }
+          .detailCell{
+            display: flex;
+            justify-content: center;
+            //margin-left: 50px;
+            margin-bottom: @second-primary-margin;
+            .detailTitle{
+              color: @first-primary-color;
+              font-weight: @second-primary-font-weight;
+              margin-right: @second-primary-margin;
+            }
+
+          }
+
+          .detailPageBtn{
+            display: flex;
+            justify-content: center;
+            .detailBtn{
+              border: 2px solid @first-primary-color;
+              color: @first-primary-color;
+              width: 80px;
+              margin-bottom: @middle-margin;
+              //margin: @middle-margin auto;
+
+              border-radius: @button-border-radius;
+            }
+          }
+        }
+
+      }
+      .carMore{
+        display: flex;
+        justify-content: center;
+        margin: @middle-margin 0 @first-primary-margin 0;
+        button{
+          background-color: @first-primary-color;
+          color: white;
+          border: none;
+          border-radius: @button-border-radius;
+        }
+
+      }
+    }
+    .aboutContent{
+      font-size: @second-primary-font-size;
+      margin: @second-primary-margin 20% @first-primary-margin 20%;
+    }
+  }
+}
+

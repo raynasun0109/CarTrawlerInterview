@@ -65,6 +65,7 @@ class Index extends Component {
             <div className={styles.container}>
                 <ScrollToTopOnMount/>
                 <Banner text="Car List" img={BannerImg}/>
+
                 <div className={styles.filterArea}>
                     <Search className={styles.searchBar} placeholder="Please Input Supplier Name" onSearch={this.onSearch} allowClear/>
                     <div className={styles.filterCell}>
@@ -151,6 +152,7 @@ class Index extends Component {
                         }
                     </div>
                 </div>
+
             </div>
         );
     }

@@ -1,132 +1,270 @@
 @import "../../global.less";
 
-.container{
-  .filterArea{
+@media screen and (min-width:414px)and (max-width: 1023px) {
+  .container{
+    .filterArea{
 
-    margin: @first-primary-margin auto @middle-margin auto;
-    .searchBar{
-      width: 500px;
-      font-size: @first-primary-font-size;
+      margin: @first-middle-primary-margin auto @first-middle-primary-margin auto;
+      .searchBar{
+        width: 300px;
+        font-size: @first-middle-primary-font-size;
 
-    }
-
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    .reSetBtn{
-      border: 2px solid @first-primary-color;
-      color: @first-primary-color;
-      border-radius: @button-border-radius;
-      margin-top: @middle-margin;
-    }
-    .filterCell{
+      }
 
       display: flex;
       align-items: center;
-      margin: @second-primary-margin auto 0 auto;
-      .filterName{
-        width: 160px;
-        font-size: @first-primary-font-size;
-        font-weight: @first-primary-font-weight;
-        color: @first-primary-color;
-
-      }
-      .filterBox{
-        width: 360px;
-      }
-    }
-  }
-  .carPreviewContainer{
-    margin-top: @first-primary-margin;
-    margin-bottom: @first-primary-margin;
-    .carPreviewContent{
-      justify-content:center;
-      display: flex;
       flex-direction: column;
-      .carCard{
-        //margin: 0 @second-primary-margin @second-primary-margin @second-primary-margin;
-        border-radius: @card-border-radius;
-        margin: @second-primary-margin auto;
-        justify-content: center;
-        display: flex;
-        width: 800px;
-        background-blend-mode: soft-light, normal;
-        box-shadow: -7px -7px 16px #FAFBFC, 4px 3px 10px #BDC1D1, inset -1px -1px 10px #F5F6FA, inset 1px 1px 10px #E9EAF2;
-        .left{
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin-right: @first-primary-margin;
-          //margin: 0 @first-primary-margin;
-          .imgContainer{
-            margin:@middle-margin auto;
-            border: 7px solid @first-primary-color;
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
-            padding: 10px;
-            img{
-              width: 100%;
-              height: 100%;
-            }
-          }
-        }
-
-
-        .right{
-          margin: @middle-margin 0;
-          .detailCell{
-            display: flex;
-            //justify-content: center;
-            //margin-left: 50px;
-            margin-bottom: @second-primary-margin;
-            .detailTitle{
-              color: @first-primary-color;
-              font-weight: @second-primary-font-weight;
-              margin-right: @second-primary-margin;
-            }
-            .detailContent{
-              text-align: left;
-            }
-          }
-
-          .detailPageBtn{
-            display: flex;
-            button{
-              margin: @second-primary-margin @second-primary-margin 0 0;
-              height: auto;
-            }
-            //justify-content: center;
-            .addToCartBtn{
-              //font-size: @second-primary-font-size;
-              border-radius: @button-border-radius;
-              border: none;
-              color: white;
-              background-color: @first-primary-color;
-            }
-            .detailBtn{
-              border: 2px solid @first-primary-color;
-              color: @first-primary-color;
-              border-radius: @button-border-radius;
-            }
-          }
-        }
-
-      }
-
-    }
-
-    .carMore{
-      display: flex;
-      justify-content: center;
-      margin: @middle-margin 0 @first-primary-margin 0;
-      button{
-        background-color: @first-primary-color;
-        color: white;
-        border: none;
+      .reSetBtn{
+        border: 2px solid @first-primary-color;
+        color: @first-primary-color;
         border-radius: @button-border-radius;
+        margin-top: @middle-middle-margin;
+      }
+      .filterCell{
+
+        display: flex;
+        align-items: center;
+        margin: @second-primary-margin auto 0 auto;
+        .filterName{
+          //width: 100px;
+          margin-right: @second-middle-primary-margin;
+          font-size: @second-middle-primary-font-size;
+          font-weight: @first-primary-font-weight;
+          color: @first-primary-color;
+
+        }
+        .filterBox{
+          width: 200px;
+        }
+      }
+    }
+    .carPreviewContainer{
+      margin-top: @first-middle-primary-margin;
+      margin-bottom: @first-primary-margin;
+      .carPreviewContent{
+        justify-content:center;
+        display: flex;
+        flex-direction: column;
+        .carCard{
+          //margin: 0 @second-primary-margin @second-primary-margin @second-primary-margin;
+          border-radius: @card-border-radius;
+          //margin: @second-primary-margin auto;
+          justify-content: center;
+          display: flex;
+          margin: @middle-middle-margin;
+          //width: 800px;
+          background-blend-mode: soft-light, normal;
+          box-shadow: -7px -7px 16px #FAFBFC, 4px 3px 10px #BDC1D1, inset -1px -1px 10px #F5F6FA, inset 1px 1px 10px #E9EAF2;
+          .left{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: @middle-middle-margin;
+            //margin: 0 @first-primary-margin;
+            .imgContainer{
+              margin:@middle-margin auto;
+              border: 3px solid @first-primary-color;
+              border-radius: 50%;
+              width: 50px;
+              height: 50px;
+              padding: @second-middle-primary-margin;
+              img{
+                width: 100%;
+                height: 100%;
+              }
+            }
+          }
+
+
+          .right{
+            margin: @second-middle-primary-margin 0;
+            .detailCell{
+              display: flex;
+              //justify-content: center;
+              //margin-left: 50px;
+              margin-bottom: @second-primary-margin;
+              .detailTitle{
+                color: @first-primary-color;
+                font-weight: @second-primary-font-weight;
+                margin-right: @second-middle-primary-margin;
+              }
+              .detailContent{
+                text-align: left;
+              }
+            }
+
+            .detailPageBtn{
+              display: flex;
+              button{
+                margin: @second-middle-primary-margin @second-middle-primary-margin 0 0;
+                height: auto;
+              }
+              //justify-content: center;
+              .addToCartBtn{
+                //font-size: @second-primary-font-size;
+                border-radius: @button-border-radius;
+                border: none;
+                color: white;
+                background-color: @first-primary-color;
+              }
+              .detailBtn{
+                border: 2px solid @first-primary-color;
+                color: @first-primary-color;
+                border-radius: @button-border-radius;
+              }
+            }
+          }
+
+        }
+
       }
 
+      .carMore{
+        display: flex;
+        justify-content: center;
+        margin: @middle-margin 0 @first-primary-margin 0;
+        button{
+          background-color: @first-primary-color;
+          color: white;
+          border: none;
+          border-radius: @button-border-radius;
+        }
+
+      }
     }
   }
 }
+
+@media screen and (min-width: 1024px) {
+  .container{
+    .filterArea{
+
+      margin: @first-primary-margin auto @middle-margin auto;
+      .searchBar{
+        width: 500px;
+        font-size: @first-primary-font-size;
+
+      }
+
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      .reSetBtn{
+        border: 2px solid @first-primary-color;
+        color: @first-primary-color;
+        border-radius: @button-border-radius;
+        margin-top: @middle-margin;
+      }
+      .filterCell{
+
+        display: flex;
+        align-items: center;
+        margin: @second-primary-margin auto 0 auto;
+        .filterName{
+          width: 160px;
+          font-size: @first-primary-font-size;
+          font-weight: @first-primary-font-weight;
+          color: @first-primary-color;
+
+        }
+        .filterBox{
+          width: 360px;
+        }
+      }
+    }
+    .carPreviewContainer{
+      margin-top: @first-primary-margin;
+      margin-bottom: @first-primary-margin;
+      .carPreviewContent{
+        justify-content:center;
+        display: flex;
+        flex-direction: column;
+        .carCard{
+          //margin: 0 @second-primary-margin @second-primary-margin @second-primary-margin;
+          border-radius: @card-border-radius;
+          margin: @second-primary-margin auto;
+          justify-content: center;
+          display: flex;
+          width: 800px;
+          background-blend-mode: soft-light, normal;
+          box-shadow: -7px -7px 16px #FAFBFC, 4px 3px 10px #BDC1D1, inset -1px -1px 10px #F5F6FA, inset 1px 1px 10px #E9EAF2;
+          .left{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: @first-primary-margin;
+            //margin: 0 @first-primary-margin;
+            .imgContainer{
+              margin:@middle-margin auto;
+              border: 7px solid @first-primary-color;
+              border-radius: 50%;
+              width: 150px;
+              height: 150px;
+              padding: 10px;
+              img{
+                width: 100%;
+                height: 100%;
+              }
+            }
+          }
+
+
+          .right{
+            margin: @middle-margin 0;
+            .detailCell{
+              display: flex;
+              //justify-content: center;
+              //margin-left: 50px;
+              margin-bottom: @second-primary-margin;
+              .detailTitle{
+                color: @first-primary-color;
+                font-weight: @second-primary-font-weight;
+                margin-right: @second-primary-margin;
+              }
+              .detailContent{
+                text-align: left;
+              }
+            }
+
+            .detailPageBtn{
+              display: flex;
+              button{
+                margin: @second-primary-margin @second-primary-margin 0 0;
+                height: auto;
+              }
+              //justify-content: center;
+              .addToCartBtn{
+                //font-size: @second-primary-font-size;
+                border-radius: @button-border-radius;
+                border: none;
+                color: white;
+                background-color: @first-primary-color;
+              }
+              .detailBtn{
+                border: 2px solid @first-primary-color;
+                color: @first-primary-color;
+                border-radius: @button-border-radius;
+              }
+            }
+          }
+
+        }
+
+      }
+
+      .carMore{
+        display: flex;
+        justify-content: center;
+        margin: @middle-margin 0 @first-primary-margin 0;
+        button{
+          background-color: @first-primary-color;
+          color: white;
+          border: none;
+          border-radius: @button-border-radius;
+        }
+
+      }
+    }
+  }
+}
+

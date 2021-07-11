@@ -80,7 +80,7 @@ class Header extends Component {
                                 <img src={CollapseIcon}/>
                             </div>
                             {console.log("isOpenSideMenu",isOpenSideMenu)}
-                            <div className={styles.controlSideBarArea}>
+                            {/*<div className={styles.controlSideBarArea}>*/}
                             <div className={`${isOpenSideMenu?styles.sideBarArea : styles.closeSideBarArea} ${styles.sideBarContainer}`}>
                                 <div className={styles.menuArea}>
                                     {
@@ -98,8 +98,11 @@ class Header extends Component {
 
                                     <img src={ShoppingCart} onClick={this.toCheckout}/>
                                 </div>
+                            {/*</div>*/}
+
+
                             </div>
-                            </div>
+
                         </>
                         :<>
                             <div className={styles.logoArea} onClick={this.toHomePage}>

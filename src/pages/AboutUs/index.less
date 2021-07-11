@@ -1,5 +1,52 @@
 @import "../../global.less";
 
+
+
+@media screen and (min-width:414px)and (max-width: 1023px) {
+  .container{
+    .contentContainer{
+      margin-top: @first-primary-margin;
+      .cultureCell{
+        flex-direction: column;
+      }
+      .missionCell{
+        flex-direction: column-reverse;
+      }
+      .contentCell{
+        margin: @first-primary-margin 0;
+        display: flex;
+
+        justify-content: center;
+        .right{
+          //width: 500px;
+          margin: 0 @middle-margin;
+          .title{
+            text-align: center;
+            font-weight: @first-primary-font-weight;
+            font-size: @first-primary-font-size;
+            margin-bottom: @middle-margin;
+            color: @first-primary-color;
+          }
+          .detail{
+            font-size: @second-primary-font-size;
+          }
+        }
+        .left{
+          //margin: 0 @middle-margin;
+
+          margin: @middle-middle-margin auto;
+          img{
+            border-radius: @card-border-radius;
+            width: 200px;
+            height: 100px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px){
 .container{
   .contentContainer{
     margin-top: @first-primary-margin;
@@ -31,4 +78,5 @@
       }
     }
   }
+}
 }

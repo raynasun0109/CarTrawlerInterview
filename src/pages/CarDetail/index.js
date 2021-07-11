@@ -4,8 +4,8 @@ import {carService} from "../../services/CarService";
 import {Button, InputNumber, message, Tag} from "antd";
 import {filterDetailContent, returnSupplierLogo,returnVehicleLogo} from "./../../function/function";
 import {connect} from "react-redux";
-import {addProduct, handleDecrement, handleIncrement} from "../../redux/action";
-// import {dispatch} from "jest-circus/build/state";
+import {addProduct} from "../../redux/action";
+import history from "../../history";
 class Index extends Component {
     state={
         carDetail:[]
@@ -53,6 +53,10 @@ class Index extends Component {
 
         return myDom
 
+    }
+
+    ToCheckout=()=>{
+        history.push('/checkout')
     }
 
     render() {
@@ -150,7 +154,7 @@ class Index extends Component {
                             {/*</div>*/}
                             <div className={styles.btnContainer}>
                                 <Button className={styles.addToCartBtn} onClick={()=>{this.props.addProduct(carDetail)}}>Add to Cart</Button>
-                                <Button className={styles.purchaseBtn}>Purchase</Button>
+                                <Button className={styles.purchaseBtn} onClick={this.ToCheckout}>Process To Checkout</Button>
 
                             </div>
                             </div>
