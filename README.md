@@ -40,8 +40,8 @@ yarn version: 1.22.10
 5. Reset sorting options after clicked reset button
 
 # Getting Started with This Project
-###1. `git clone https://github.com/raynasun0109/CarTrawlerInterview.git`
-###2. `yarn install`
-###3. `yarn start`
-###4. run `http://localhost:3000` on your browser
+1. `git clone https://github.com/raynasun0109/CarTrawlerInterview.git`
+2. `yarn install`
+3. `yarn start`
+4. run `http://localhost:3000` on your browser
  
