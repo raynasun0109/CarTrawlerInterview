@@ -189,12 +189,11 @@
 
 @media screen and (min-width: 1024px){
   .container{
+    padding-bottom: 50px;
 
-    margin-top: @middle-margin;
     .listBottom{
       background-color: @first-primary-color;
       width: 800px;
-      //justify-content: center;
       display: flex;
       margin: 0 auto @first-primary-margin auto;
       height: auto;
@@ -221,15 +220,12 @@
         }
       }
       .placeOrderContainer{
-        //margin-right: @second-primary-margin;
         display: flex;
         justify-content: center;
         margin: @second-primary-margin;
         .text{
           background-color: white;
           color: @first-primary-color;
-          //margin: @first-primary-margin 0;
-          //padding: @second-primary-margin;
           height: auto;
           border: none;
           border-radius: @button-border-radius;
@@ -243,7 +239,8 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-top: @middle-margin;
+      //height: calc(100vh - 70px - 50px);
+      //margin-top: @middle-margin;
       img{
         width: 300px;
         height: 300px;
@@ -266,9 +263,8 @@
     .title {
       display: flex;
       justify-content: center;
-      margin-top: @middle-margin;
       margin-bottom: @middle-margin;
-
+      margin-top: @first-primary-margin;
       .titleText {
         color: @first-primary-color;
         font-size: @large-font-size;

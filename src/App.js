@@ -9,6 +9,7 @@ import CarList from "./pages/CarList/index";
 import "./App.css";
 import AboutUs from "./pages/AboutUs/index";
 import CheckOut from "./pages/Checkout/index"
+import NotFound from "./pages/NotFound/index"
 class App extends React.Component {
 
   render() {
@@ -22,6 +23,7 @@ class App extends React.Component {
               <Route exact path="/checkout" component={CheckOut} />
               <Route exact path="/car" component={CarList} />
               <Route exact path="/car/:id" component={CarDetail} />
+              <Route path="*" component={NotFound} />
           </Switch>
           <Footer/>
       </Router>
