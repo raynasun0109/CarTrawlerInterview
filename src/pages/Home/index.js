@@ -7,7 +7,7 @@ import CarouselThree from "./../../assets/Home/carsouel-3.jpg";
 import {carService} from "../../services/CarService";
 import {sortDataByETA,returnSupplierLogo,returnVehicleLogo} from "../../function/function";
 import history from '../../history';
-
+import ScrollToTopOnMount from "../../components/ScrollToTop/ScrollToTop";
 class Index extends Component {
     state={
         carList:[],
@@ -49,6 +49,7 @@ class Index extends Component {
         const {carouselContent,carList}= this.state;
         return (
             <div className={styles.container}>
+                <ScrollToTopOnMount />
                <div className={styles.carouselContainer}>
                    <Carousel autoplay>
                        {

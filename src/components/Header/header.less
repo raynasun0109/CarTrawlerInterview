@@ -1,11 +1,10 @@
 @import "../../global.less";
+
 .header{
   display: flex;
   height: 70px;
   width: 100vw;
   justify-content: space-between;
-  border: 1px solid red;
-  //position: absolute;
   top: @middle-margin;
   z-index: 99999;
   background-color: @first-primary-color;
@@ -21,7 +20,6 @@
 
   }
   .menuArea{
-    border: 1px solid red;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,6 +27,11 @@
       margin: 0 30px;
       font-size: @first-primary-font-size;
       color: white;
+      .activeCell{
+        height: 2px;
+        width: 100%;
+        background-color: white;
+      }
     }
   }
   .shoppingArea{

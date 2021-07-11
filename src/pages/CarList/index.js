@@ -1,14 +1,24 @@
 import React, {Component} from 'react';
 import styles from "./index.less";
 import {carService} from "../../services/CarService";
-import {returnSupplierLogo, sortDataByETA} from "../../function/function";
-import {Button, Tag} from "antd";
+import {returnSupplierLogo, sortDataByETA,filterSupplierName,
+    filterProductType,transferSubCategory,transferProductType,filterSubCategory} from "../../function/function";
+import {Button, message, Tag,Input,Radio} from "antd";
 import history from "../../history";
 import Banner from "../../components/Banner/Banner";
 import BannerImg from "./../../assets/CarList/banner.jpg";
+import {addProduct} from "../../redux/action";
+import {connect} from "react-redux";
+import ScrollToTopOnMount from "../../components/ScrollToTop/ScrollToTop";
+
+const { Search } = Input;
 class Index extends Component {
     state={
-        carList:[]
+        carList:[],
+        productType:["Standard","Other"],
+        chosenProductType:"",
+        subCategory:["Highly Recommended","Most Popular"],
+        chosenSubCategory:""
     }
     componentDidMount(){
         this.fetchCarList()
@@ -21,12 +31,62 @@ class Index extends Component {
     jumpToCarDetail=(pageDetail)=>{
         history.push( {pathname:`/car/${pageDetail.availabilityId}`})
     }
+
+    //search bar
+    onSearch = (e) =>{
+        this.filterData(e);
+    }
+    reset=()=>{
+        this.fetchCarList()
+    }
+
+    //filter input from search bar
+    filterData=(keyword)=>{
+        const {carList}=this.state;
+        const searchList=filterSupplierName(keyword,carList);
+        this.setState({carList:searchList})
+    }
+    onProductTypeChange=(e)=>{
+        const {carList}=this.state;
+        const searchList=filterProductType(transferProductType(e.target.value),carList);
+        this.setState({carList:searchList})
+    }
+
+    onSubCategoryChange=(e)=>{
+        const {carList}=this.state;
+        const searchList=filterSubCategory(transferSubCategory(e.target.value),carList);
+        this.setState({carList:searchList})
+    }
+
     render() {
-        const {carList}= this.state;
+        const {carList,productType,subCategory}= this.state;
 
         return (
             <div className={styles.container}>
+                <ScrollToTopOnMount/>
                 <Banner text="Car List" img={BannerImg}/>
+                <div className={styles.filterArea}>
+                    <Search className={styles.searchBar} placeholder="Please Input Supplier Name" onSearch={this.onSearch} allowClear/>
+                    <div className={styles.filterCell}>
+                        <div className={styles.filterName}>
+                            Product Type:
+                        </div>
+                        <div className={styles.filterBox}>
+                            <Radio.Group options={productType} onChange={this.onProductTypeChange} />
+
+                        </div>
+                    </div>
+                    <div className={styles.filterCell}>
+                        <div className={styles.filterName}>
+                            Sub Category:
+                        </div>
+                        <div className={styles.filterBox}>
+                            <Radio.Group options={subCategory} onChange={this.onSubCategoryChange} />
+
+                        </div>
+                    </div>
+                    <Button className={styles.reSetBtn} onClick={this.reset}>Reset</Button>
+                </div>
                 <div className={styles.carPreviewContainer}>
                     <div className={styles.carPreviewContent}>
                         {
@@ -80,7 +140,7 @@ class Index extends Component {
                                             <Button className={styles.detailBtn} onClick={()=>{this.jumpToCarDetail(item)}}>
                                                 Details
                                             </Button>
-                                            <Button className={styles.addToCartBtn} onClick={()=>{this.jumpToCarDetail(item)}}>
+                                            <Button className={styles.addToCartBtn} onClick={()=>{this.props.addProduct(item)}}>
                                                 Add To Cart
                                             </Button>
                                         </div>
@@ -95,5 +155,12 @@ class Index extends Component {
         );
     }
 }
-
-export default Index;
+const mapDispatchToProps=(dispatch)=>{
+    return {
+        addProduct(item){
+            message.success("Added Successfully")
+            dispatch(addProduct(item))
+        },
+    }
+}
+export default connect(null,mapDispatchToProps)(Index);

@@ -1,6 +1,41 @@
 @import "../../global.less";
 
 .container{
+  .filterArea{
+
+    margin: @first-primary-margin auto @middle-margin auto;
+    .searchBar{
+      width: 500px;
+      font-size: @first-primary-font-size;
+
+    }
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    .reSetBtn{
+      border: 2px solid @first-primary-color;
+      color: @first-primary-color;
+      border-radius: @button-border-radius;
+      margin-top: @middle-margin;
+    }
+    .filterCell{
+
+      display: flex;
+      align-items: center;
+      margin: @second-primary-margin auto 0 auto;
+      .filterName{
+        width: 160px;
+        font-size: @first-primary-font-size;
+        font-weight: @first-primary-font-weight;
+        color: @first-primary-color;
+
+      }
+      .filterBox{
+        width: 360px;
+      }
+    }
+  }
   .carPreviewContainer{
     margin-top: @first-primary-margin;
     margin-bottom: @first-primary-margin;
@@ -72,10 +107,6 @@
             .detailBtn{
               border: 2px solid @first-primary-color;
               color: @first-primary-color;
-              //width: 80px;
-              //margin-bottom: @middle-margin;
-              //margin: @middle-margin auto;
-              //font-size: @second-primary-font-size;
               border-radius: @button-border-radius;
             }
           }

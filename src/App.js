@@ -8,27 +8,18 @@ import Footer from "./components/Footer/footer";
 import CarList from "./pages/CarList/index";
 import "./App.css";
 import AboutUs from "./pages/AboutUs/index";
-// import {connect} from "react-redux";
-// import Redux1Comp from "./components/Redux1Comp";
-// import Goods from "./components/Goods";
-import Comp2 from "./components/Comp2";
-import Comp3 from "./components/Comp3";
-
+import CheckOut from "./pages/Checkout/index"
 class App extends React.Component {
 
   render() {
-      // const {count} = this.props
   return (
     <div className={"app"}>
       <Router history={history}>
           <Header/>
-          <Comp2/>
-          <Comp3/>
-          {/*<Redux1Comp/>*/}
-          {/*<Goods/>*/}
           <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/about" component={AboutUs} />
+              <Route exact path="/checkout" component={CheckOut} />
               <Route exact path="/car" component={CarList} />
               <Route exact path="/car/:id" component={CarDetail} />
           </Switch>

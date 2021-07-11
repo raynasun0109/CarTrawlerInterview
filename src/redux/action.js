@@ -1,16 +1,14 @@
-export const handleIncrement=()=>{
+export const removeProduct=(item)=>{
     return {
-        type:"increment"
+        type:"removeProduct",
+        good:item
     }
 }
+
 export const addProduct=(item)=>{
     return {
         type:"addProduct",
         good:item
     }
 }
-export const handleDecrement=()=>{
-    return {
-        type:"decrement"
-    }
-}
+

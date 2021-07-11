@@ -5,7 +5,6 @@ class Banner extends Component {
 
     render() {
         const {img,text} = this.props;
-        console.log(text)
         return (
             <div className={styles.bannerContainer}>
                 <img src={img}/>

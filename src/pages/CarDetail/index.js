@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import styles from "./index.less";
 import {carService} from "../../services/CarService";
-import {Button,InputNumber,Tag} from "antd";
-// import {connect} from "react-redux";
+import {Button, InputNumber, message, Tag} from "antd";
 import {filterDetailContent, returnSupplierLogo,returnVehicleLogo} from "./../../function/function";
+import {connect} from "react-redux";
+import {addProduct, handleDecrement, handleIncrement} from "../../redux/action";
 // import {dispatch} from "jest-circus/build/state";
 class Index extends Component {
     state={
@@ -61,8 +62,9 @@ class Index extends Component {
 
         const {dispatch,count}=this.props;
         const {carDetail} = this.state;
+        const {shoppingList}=this.props;
 
-        console.log("count",count)
+        console.log("count",shoppingList)
         return (
             <div className={styles.container}>
                 <div className={styles.basicContent}>
@@ -142,12 +144,12 @@ class Index extends Component {
                         </div>
                         <div className={styles.paymentContainer}>
                             <div className={styles.payment}>
-                            <div className={styles.numberContainer}>
-                            <InputNumber min={1} max={100000} defaultValue={1} onChange={this.onNumberChange} />
+                            {/*<div className={styles.numberContainer}>*/}
+                            {/*<InputNumber min={1} max={100000} defaultValue={1} onChange={this.onNumberChange} />*/}
 
-                            </div>
+                            {/*</div>*/}
                             <div className={styles.btnContainer}>
-                                <Button className={styles.addToCartBtn} onClick={()=>{dispatch({type:'add'})}}>Add to Cart</Button>
+                                <Button className={styles.addToCartBtn} onClick={()=>{this.props.addProduct(carDetail)}}>Add to Cart</Button>
                                 <Button className={styles.purchaseBtn}>Purchase</Button>
 
                             </div>
@@ -160,7 +162,17 @@ class Index extends Component {
         );
     }
 }
-export default Index;
+
+const mapDispatchToProps=(dispatch)=>{
+    return {
+        addProduct(item){
+            message.success("Added Successfully")
+            dispatch(addProduct(item))
+        },
+    }
+}
+export default connect(null,mapDispatchToProps)(Index);
+// export default Index;
 // const mapStateToProps = state=>{
 //     console.log("state",state)
 //     return state.count

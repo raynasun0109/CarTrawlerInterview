@@ -71,3 +71,104 @@ export function returnVehicleLogo(key) {
 export function filterDetailContent(id,data) {
     return data.filter(item=> item.availabilityId === id)[0]
 }
+
+/**
+ * @Author Mingyang Sun
+ * @Date 10/07/2021
+ * @Description: Filter search bar content
+ * @Contact: sunmi@tcd.ie
+ */
+export function filterSupplierName(keyword,data) {
+    console.log("filterSearchContent",keyword,data)
+    const filtedContent= data.filter(function (value, index, array) {
+
+        return value.supplier.supplierName == keyword.toUpperCase() ;
+    });
+    return filtedContent
+}
+
+/**
+ * @Author Mingyang Sun
+ * @Date 10/07/2021
+ * @Description: Filter search bar content
+ * @Contact: sunmi@tcd.ie
+ */
+export function filterProductType(keyword,data) {
+    const filtedContent= data.filter(function (value, index, array) {
+
+        return value.category.productType == keyword.toUpperCase() ;
+    });
+    return filtedContent
+}
+export function filterSubCategory(keyword,data) {
+    const filtedContent= data.filter(function (value, index, array) {
+
+        return value.category.subCategory == keyword.toUpperCase() ;
+    });
+    return filtedContent
+}
+/**
+ * @Author Mingyang Sun
+ * @Date 10/07/2021
+ * @Description: transfer the product type to certain format
+ * @Contact: sunmi@tcd.ie
+ */
+export function transferProductType(key) {
+    switch (key) {
+        case "Standard":
+            return "STANDARD";
+        case "Other":
+            return "OTHER";
+        default:
+            return "";
+    }
+}
+
+/**
+ * @Author Mingyang Sun
+ * @Date 10/07/2021
+ * @Description: transfer the product type to certain format
+ * @Contact: sunmi@tcd.ie
+ */
+export function transferSubCategory(key) {
+    switch (key) {
+        case "Most Popular":
+            return "MOST_POPULAR";
+        case "Highly Recommended":
+            return "HIGHLY_RECOMMENDED";
+        default:
+            return "";
+    }
+}
+
+/**
+ * @Author Mingyang Sun
+ * @Date 10/07/2021
+ * @Description: Input the shopping cart list and calculate the total amount based on different currency
+ * @Contact: sunmi@tcd.ie
+ */
+export function calculateAmount(data) {
+    const amount=[];
+
+    const hashMap=new Map();
+
+    for (let i =0;i<data.length;i++){
+        if(hashMap.has(data[i]['price']['currency'])){
+            hashMap.set(data[i]['price']['currency'],hashMap.get(data[i]['price']['currency'])+(data[i]['price']['amount'])*data[i]['amount'])
+        } else{
+            hashMap.set(data[i]['price']['currency'],(data[i]['price']['amount'])*data[i]['amount']);
+        }
+    }
+
+
+    for (let [key, value] of hashMap.entries()) {
+        const obj={
+            amount:value,
+            currency:key
+        }
+
+        amount.push(obj)
+    }
+
+    return amount
+}

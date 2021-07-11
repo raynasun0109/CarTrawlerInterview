@@ -25,13 +25,27 @@ class Header extends Component {
 
     }
 
-    jumpToPage=(pathName)=>{
-        history.push(pathName);
+
+    componentDidMount() {
+        this.checkRouter()
     }
 
+    checkRouter = () => {
+        let {pathname} = window.location;
+        this.setState({ pathname: pathname })
+    }
+    jumpToPage=(pathName)=>{
+        history.push(pathName);
+        this.checkRouter()
+    }
+
+    toCheckout=()=>{
+        history.push("/checkout");
+    }
 
     render() {
-        const {menu}= this.state;
+        const {menu,pathname}= this.state;
+        console.log(this.props)
         return (
             <div className={styles.header}>
                 <div className={styles.logoArea}>
@@ -43,6 +57,7 @@ class Header extends Component {
                             return (
                                 <div className={styles.menuCell} key={index} onClick={()=>{this.jumpToPage(item.path)}}>
                                     {item.name}
+                                    <div className={pathname===item.path?styles.activeCell:styles.inActiveCell}/>
                                 </div>
                             )
                         })
@@ -50,7 +65,7 @@ class Header extends Component {
                 </div>
                 <div className={styles.shoppingArea}>
 
-                    <img src={ShoppingCart}/>
+                    <img src={ShoppingCart} onClick={this.toCheckout}/>
                 </div>
             </div>
         );
