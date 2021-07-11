@@ -45,43 +45,28 @@ const reducer=(state=initState,action)=>{
                     total:state.total+1
                 })
             } else {
-                for(let i =0;i<shoppingList.length;i++){
-                    if(shoppingList[i]['availabilityId']===action.good.availabilityId){
-                        shoppingList[i]['amount']++;
-                        return Object.assign({},state,{
-                            shoppingList:state.shoppingList,
-                            total:state.total+1
-                        })
-                    }
-                    action.good.amount=1;
-                       addList.push(action.good)
-                        return Object.assign({},state,{
-                            shoppingList:state.shoppingList.concat(addList),
-                            total:state.total+1
-                        })
 
+                //if the original shopping list is empty
+                //check whether the same item already added to shopping list or not
+
+                const itemIndex=shoppingList.map(obj => obj.availabilityId).indexOf(action.good.availabilityId);
+
+                if (itemIndex!==-1){
+                    shoppingList[itemIndex]['amount']++;
+                    return Object.assign({},state,{
+                        shoppingList:state.shoppingList,
+                        total:state.total+1
+                    })
+                } else {
+                    action.good.amount=1;
+                    addList.push(action.good)
+                    return Object.assign({},state,{
+                        shoppingList:state.shoppingList.concat(addList),
+                        total:state.total+1
+                    })
                 }
-                // for(let i of shoppingList){
-                // if (i.availabilityId!==action.good.availabilityId){
-                //     action.good.amount=1;
-                //    addList.push(action.good)
-                //     return Object.assign({},state,{
-                //         shoppingList:state.shoppingList.concat(addList),
-                //         total:state.total+1
-                //     })
-                // } else{
-                //     i.amount++;
-                //     return Object.assign({},state,{
-                //         shoppingList:state.shoppingList,
-                //         total:state.total+1
-                //     })
-                // }
-                // }
+
             }
-            return Object.assign({},state,{
-                shoppingList:state.shoppingList,
-                total:state.total+1
-            })
         default:
             return state;
     }
