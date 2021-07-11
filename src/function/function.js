@@ -67,12 +67,11 @@ export function filterDetailContent(id,data) {
  * @Contact: sunmi@tcd.ie
  */
 export function filterSupplierName(keyword,data) {
-    console.log("filterSearchContent",keyword,data)
-    const filtedContent= data.filter(function (value, index, array) {
+    const filterdContent= data.filter(function (value, index, array) {
 
         return value.supplier.supplierName === keyword.toUpperCase() ;
     });
-    return filtedContent
+    return filterdContent
 }
 
 /**
@@ -82,18 +81,18 @@ export function filterSupplierName(keyword,data) {
  * @Contact: sunmi@tcd.ie
  */
 export function filterProductType(keyword,data) {
-    const filtedContent= data.filter(function (value, index, array) {
+    const filteredContent= data.filter(function (value, index, array) {
 
         return value.category.productType === keyword.toUpperCase() ;
     });
-    return filtedContent
+    return filteredContent
 }
 export function filterSubCategory(keyword,data) {
-    const filtedContent= data.filter(function (value, index, array) {
+    const filteredContent= data.filter(function (value, index, array) {
 
         return value.category.subCategory === keyword.toUpperCase() ;
     });
-    return filtedContent
+    return filteredContent
 }
 /**
  * @Author Mingyang Sun
@@ -149,6 +148,7 @@ export function calculateAmount(data) {
     }
 
 
+    //reorganized the data to certain format
     for (let [key, value] of hashMap.entries()) {
         const obj={
             amount:value,
@@ -181,7 +181,7 @@ export function calculateAmountAfterRemoveItem(removedItem,data) {
 /**
  * @Author Mingyang Sun
  * @Date 11/07/2021
- * @Description: Sort car list specific value from either high to low or low to high
+ * @Description: Sort car list by ETA from either high to low or low to high
  * @Contact: sunmi@tcd.ie
  */
 export function sortDataByETA(data,value) {
@@ -197,6 +197,13 @@ export function sortDataByETA(data,value) {
     }
 
 }
+
+/**
+ * @Author Mingyang Sun
+ * @Date 11/07/2021
+ * @Description: Sort car list by price from either high to low or low to high
+ * @Contact: sunmi@tcd.ie
+ */
 export function sortByPrice(data,value) {
     if (value==="From High to Low") {
         return data.sort(function (a, b) {

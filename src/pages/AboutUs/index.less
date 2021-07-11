@@ -1,6 +1,52 @@
 @import "../../global.less";
 
+@media screen and (max-width: 413px) {
+  .container {
+    .contentContainer {
+      margin-top: @first-middle-primary-margin;
 
+      .cultureCell {
+        flex-direction: column;
+      }
+
+      .missionCell {
+        flex-direction: column-reverse;
+      }
+
+      .contentCell {
+        margin: @first-middle-primary-margin 0;
+        display: flex;
+        justify-content: center;
+
+        .right {
+          margin: 0 @middle-margin;
+
+          .title {
+            text-align: center;
+            font-weight: @first-primary-font-weight;
+            font-size: @first-primary-font-size;
+            margin-bottom: @middle-margin;
+            color: @first-primary-color;
+          }
+
+          .detail {
+            font-size: @second-middle-primary-margin;
+          }
+        }
+
+        .left {
+          margin: @middle-middle-margin auto;
+
+          img {
+            border-radius: @card-border-radius;
+            width: 200px;
+            height: 100px;
+          }
+        }
+      }
+    }
+  }
+}
 
 @media screen and (min-width:414px)and (max-width: 1023px) {
   .container{
@@ -18,7 +64,6 @@
 
         justify-content: center;
         .right{
-          //width: 500px;
           margin: 0 @middle-margin;
           .title{
             text-align: center;
@@ -32,8 +77,6 @@
           }
         }
         .left{
-          //margin: 0 @middle-margin;
-
           margin: @middle-middle-margin auto;
           img{
             border-radius: @card-border-radius;

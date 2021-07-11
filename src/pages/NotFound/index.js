@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Result, Button } from 'antd';
 import styles from "./index.less";
+import ScrollToTopOnMount from "../../components/ScrollToTop/ScrollToTop";
 class Index extends Component {
     toHomePage=()=>{
         this.props.history.push("/");
@@ -8,6 +9,7 @@ class Index extends Component {
     render() {
         return (
             <div className={styles.container}>
+                <ScrollToTopOnMount />
                 <Result
                     className={styles.noFound}
                     status="404"

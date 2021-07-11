@@ -58,11 +58,10 @@ class App extends React.Component {
                   routers.map((item,index)=>{
 
                       return (
-                          <Route exact={item.exact} path={item.path} component={item.component} />
+                          <Route key={index} exact={item.exact} path={item.path} component={item.component} />
                       )
 
               })
-
               }
           </Switch>
           <Footer/>

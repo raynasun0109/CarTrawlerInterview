@@ -19,7 +19,6 @@ class Index extends Component {
 
     render() {
         const {shoppingList,totalAmount}=this.props.state;
-        // {console.log(22222222,totalAmount,this.props)}
         return (
             <div className={styles.container}>
                 <ScrollToTopOnMount />
@@ -55,8 +54,8 @@ class Index extends Component {
                                                     </div>
                                                     <div className={styles.detailContent}>
 
-                                                        <Tag color="#01c0f2"> {item.category.productType}</Tag>
-                                                        <Tag color="#01c0f2"> {item.category.vehicleType}</Tag>
+                                                        <Tag className={styles.tagCell} color="#01c0f2"> {item.category.productType}</Tag>
+                                                        <Tag className={styles.tagCell} color="#01c0f2"> {item.category.vehicleType}</Tag>
 
                                                     </div>
                                                 </div>

@@ -1,4 +1,29 @@
 @import "../../global.less";
+@media screen and (max-width: 413px) {
+  .bannerContainer {
+    position: relative;
+    width: 100%;
+
+    img {
+      height: 250px;
+      width: 100vw;
+    }
+
+    .bannerText {
+      z-index: 2;
+      top: calc(120px);
+      margin: 0 auto;
+      left: 50%;
+      transform: translateX(-50%);
+      position: absolute;
+      font-size: @large-middle-font-size;
+      font-weight: @first-primary-font-weight;
+      color: @first-primary-color;
+
+    }
+  }
+
+}
 @media screen and (min-width:414px)and (max-width: 1023px){
   .bannerContainer {
     position: relative;

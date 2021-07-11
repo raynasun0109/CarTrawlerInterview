@@ -69,7 +69,6 @@ class Header extends Component {
     render() {
         const {menu,pathname,collapse,isOpenSideMenu}= this.state;
         const {total}=this.props.state;
-        // console.log(this.props)
         return (
             <div className={styles.header}>
                 {

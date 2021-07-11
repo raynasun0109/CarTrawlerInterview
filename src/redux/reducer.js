@@ -32,15 +32,12 @@ const reducer=(state=initState,action)=>{
                     }
                 }
             }
-
-
             break;
+
         case "addProduct":
             const addList=[];
-
             const {shoppingList} =state;
 
-            console.log("shoppingList",shoppingList)
             //if the original shopping list is empty
             if (shoppingList.length===0){
                 action.good.amount=1;

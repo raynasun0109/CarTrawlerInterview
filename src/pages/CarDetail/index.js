@@ -23,19 +23,17 @@ class Index extends Component {
 
         const filteredContent = filterDetailContent(id,carListRawData.data)
 
-        console.log("final",filteredContent)
         this.setState({carDetail:filteredContent})
     }
 
-    onNumberChange=(value)=>{
-        console.log('changed', value);
-    }
+    // onNumberChange=(value)=>{
+    //     console.log('changed', value);
+    // }
 
     returnProductBagsDetail=()=>{
         const {carDetail} = this.state;
         let myDom;
         if (carDetail.product&&carDetail.product.bags){
-
             myDom=<>{
                 Object.keys(carDetail.product.bags).map((key,value)=>{
                     return  <div className={styles.productDetailCell} key={value}>
@@ -59,15 +57,7 @@ class Index extends Component {
     }
 
     render() {
-        // const pageDetail=this.props.location.state;
-        // console.log("pageDetail",this.props)
-
-
-        // const {dispatch,count}=this.props;
         const {carDetail} = this.state;
-        const {shoppingList}=this.props;
-
-        console.log("count",shoppingList)
         return (
             <div className={styles.container}>
                 <div className={styles.basicContent}>

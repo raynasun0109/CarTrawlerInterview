@@ -1,5 +1,169 @@
 @import "../../global.less";
 
+@media screen and (max-width: 413px) {
+  .container {
+    .filterArea {
+
+      margin: @first-middle-primary-margin auto @first-middle-primary-margin auto;
+
+      .searchBar {
+        width: 80vw;
+        font-size: @first-middle-primary-font-size;
+
+      }
+
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+      .reSetBtn {
+        border: 2px solid @first-primary-color;
+        color: @first-primary-color;
+        border-radius: @button-border-radius;
+        margin-top: @middle-middle-margin;
+      }
+
+      .filterCell {
+
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin: @second-primary-margin auto 0 auto;
+
+        .filterName {
+          font-size: @second-middle-primary-font-size;
+          font-weight: @first-primary-font-weight;
+          color: @first-primary-color;
+
+        }
+
+        .filterBox {
+          :global{
+            .ant-radio-group{
+              display: flex;
+              justify-content: center;
+              flex-direction: column;
+              .ant-radio-wrapper{
+                margin: 0 auto;
+              }
+            }
+          }
+          .sortArea {
+            justify-content: center;
+            display: flex;
+
+            .title {
+              margin-right: @middle-middle-margin;
+            }
+          }
+        }
+      }
+    }
+
+    .carPreviewContainer {
+      margin-top: @first-middle-primary-margin;
+      margin-bottom: @first-primary-margin;
+
+      .carPreviewContent {
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+
+        .carCard {
+          border-radius: @card-border-radius;
+          justify-content: center;
+          display: flex;
+          width: 90vw;
+          margin: @middle-middle-margin auto;
+          background-blend-mode: soft-light, normal;
+          box-shadow: -7px -7px 16px #FAFBFC, 4px 3px 10px #BDC1D1, inset -1px -1px 10px #F5F6FA, inset 1px 1px 10px #E9EAF2;
+
+          .left {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin:0 5vw;
+            //margin: 0 @first-primary-margin;
+            .imgContainer {
+              margin: @middle-margin auto;
+              border: 3px solid @first-primary-color;
+              border-radius: 50%;
+              width: 20vw;
+              height: 20vw;
+              padding: @second-middle-primary-margin;
+
+              img {
+                width: 100%;
+                height: 100%;
+              }
+            }
+          }
+
+
+          .right {
+            margin: @middle-margin 0;
+
+            .detailCell {
+              display: flex;
+              margin-bottom: @second-primary-margin;
+
+              .detailTitle {
+                color: @first-primary-color;
+                font-weight: @second-primary-font-weight;
+                margin-right: @second-middle-primary-margin;
+              }
+
+              .detailContent {
+                text-align: left;
+              }
+            }
+
+            .detailPageBtn {
+
+              button {
+                margin: @second-middle-primary-margin @second-middle-primary-margin 0 0;
+                height: auto;
+              }
+
+              .addToCartBtn {
+                border-radius: @button-border-radius;
+                cursor: pointer;
+                border: none;
+                color: white;
+                background-color: @first-primary-color;
+              }
+
+              .detailBtn {
+                cursor: pointer;
+                border: 2px solid @first-primary-color;
+                color: @first-primary-color;
+                border-radius: @button-border-radius;
+              }
+            }
+          }
+
+        }
+
+      }
+
+      .carMore {
+        display: flex;
+        justify-content: center;
+        margin: @middle-margin 0 @first-primary-margin 0;
+
+        button {
+          background-color: @first-primary-color;
+          color: white;
+          border: none;
+          border-radius: @button-border-radius;
+        }
+
+      }
+    }
+  }
+
+}
+
 @media screen and (min-width:414px)and (max-width: 1023px) {
   .container{
     .filterArea{
