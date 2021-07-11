@@ -1,6 +1,8 @@
+import {calculateAmount,calculateAmountAfterRemoveItem} from "./../function/function"
 const initState={
     shoppingList:[],
     total:0,
+    totalAmount:0
 }
 
 const reducer=(state=initState,action)=>{
@@ -12,6 +14,11 @@ const reducer=(state=initState,action)=>{
                 if (i.availabilityId===action.good.availabilityId){
                     if (i.amount>1){
                         i.amount--;
+                        return Object.assign({},state,{
+                            shoppingList:state.shoppingList,
+                            total:state.total-1,
+                            totalAmount:calculateAmountAfterRemoveItem(action.good,state.totalAmount)
+                        })
                     } else{
                         const filterdList=list.filter(function (value, index, array) {
                             return value.availabilityId !== action.good.availabilityId ;
@@ -19,16 +26,14 @@ const reducer=(state=initState,action)=>{
                         });
                         return Object.assign({},state,{
                             shoppingList:filterdList,
-                            total:state.total-1
+                            total:state.total-1,
+                            totalAmount:calculateAmountAfterRemoveItem(action.good,state.totalAmount)
                         })
                     }
                 }
             }
 
-            return Object.assign({},state,{
-                shoppingList:state.shoppingList,
-                total:state.total-1
-            })
+
 
         case "addProduct":
             const addList=[];
@@ -42,7 +47,8 @@ const reducer=(state=initState,action)=>{
                    addList.push(action.good)
                 return Object.assign({},state,{
                     shoppingList:state.shoppingList.concat(addList),
-                    total:state.total+1
+                    total:state.total+1,
+                    totalAmount:calculateAmount(state.shoppingList.concat(addList))
                 })
             } else {
 
@@ -55,14 +61,16 @@ const reducer=(state=initState,action)=>{
                     shoppingList[itemIndex]['amount']++;
                     return Object.assign({},state,{
                         shoppingList:state.shoppingList,
-                        total:state.total+1
+                        total:state.total+1,
+                        totalAmount:calculateAmount(state.shoppingList)
                     })
                 } else {
                     action.good.amount=1;
                     addList.push(action.good)
                     return Object.assign({},state,{
                         shoppingList:state.shoppingList.concat(addList),
-                        total:state.total+1
+                        total:state.total+1,
+                        totalAmount:calculateAmount(state.shoppingList.concat(addList))
                     })
                 }
 

@@ -9,22 +9,8 @@ import ScrollToTopOnMount from "../../components/ScrollToTop/ScrollToTop";
 import EmptyImg from "../../assets/Checkout/Empty.png"
 class Index extends Component {
 
-    state={
-        amount:[
-            {
-            currency:"EUR",
-            amount:0
-        }
-        ]
-    }
-
     toCarList=()=>{
         history.push("/car")
-    }
-
-    componentDidMount() {
-        const {shoppingList}=this.props.state;
-        this.setState({amount:calculateAmount(shoppingList)})
     }
 
     placeOrder=()=>{
@@ -33,10 +19,8 @@ class Index extends Component {
     }
 
     render() {
-        const {amount}=this.state;
-        const {shoppingList}=this.props.state;
-        // console.log(777777,shoppingList)
-        {console.log(22222222,this.props)}
+        const {shoppingList,totalAmount}=this.props.state;
+        // {console.log(22222222,totalAmount,this.props)}
         return (
             <div className={styles.container}>
                 <ScrollToTopOnMount />
@@ -143,11 +127,11 @@ class Index extends Component {
                                 <div className={styles.totalAmount}>
 
                                     {
-                                        amount.map((item,index)=>{
+                                        totalAmount.map((item,index)=>{
                                             return (
                                                 <div key={item} className={styles.amountCell}>
                                                     {item.currency} {item.amount}
-                                                    {index!==amount.length-1?"+":""}
+                                                    {index!==totalAmount.length-1?"+":""}
                                                 </div>
                                             )
                                         })
@@ -177,12 +161,12 @@ const mapStateToProps=(state)=>{
 const mapDispatchToProps=(dispatch)=>{
     return {
         addProduct(item){
-            console.log("item",item)
+            // console.log("item",item)
             message.success("Added Successfully")
             dispatch(addProduct(item))
         },
         removeProduct(item){
-            console.log("item",item)
+            // console.log("item",item)
             message.success("Removed Successfully")
             dispatch(removeProduct(item))
         },

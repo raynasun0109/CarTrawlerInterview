@@ -172,3 +172,20 @@ export function calculateAmount(data) {
 
     return amount
 }
+
+/**
+ * @Author Mingyang Sun
+ * @Date 11/07/2021
+ * @Description: Recalculate the amount after remove the item
+ * @Contact: sunmi@tcd.ie
+ */
+export function calculateAmountAfterRemoveItem(removedItem,data) {
+
+    for (let i of data){
+        if(i.currency===removedItem.price.currency){
+            i.amount-=removedItem.price.amount
+        }
+    }
+
+    return data
+}
