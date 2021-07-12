@@ -67,11 +67,11 @@ export function filterDetailContent(id,data) {
  * @Contact: sunmi@tcd.ie
  */
 export function filterSupplierName(keyword,data) {
-    const filterdContent= data.filter(function (value, index, array) {
+    const filteredContent= data.filter(function (value, index, array) {
 
         return value.supplier.supplierName === keyword.toUpperCase() ;
     });
-    return filterdContent
+    return filteredContent
 }
 
 /**
